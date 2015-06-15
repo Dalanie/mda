@@ -16,8 +16,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="PreState"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="PostState"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PreState" lowerBound="1"
+        eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PostState" lowerBound="1"
+        eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Input" lowerBound="1" eType="#//Input"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Activation" lowerBound="1"
         eType="#//Activation"/>
