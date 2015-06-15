@@ -1,32 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="">
-  <eClassifiers xsi:type="ecore:EClass" name="InteractionTable">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Rows" upperBound="-1" eType="#//Interaction"
-        containment="true" eOpposite="#//Interaction/InteractionTable"/>
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ScenarioProjection">
+  <eClassifiers xsi:type="ecore:EClass" name="Scenario">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Communication" upperBound="-1"
+        eType="#//Communication" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Interaction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="PreState" lowerBound="1"
-        eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="PostState" lowerBound="1"
-        eType="#//State"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Communication">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PreState" eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Sender" lowerBound="1"
-        eType="#//InteractionObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Return" lowerBound="1"
-        eType="#//ReturnValue"/>
+        eType="#//Object"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Operation" eType="#//Operation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Receiver" lowerBound="1"
-        eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="InteractionTable" lowerBound="1"
-        eType="#//InteractionTable" eOpposite="#//InteractionTable/Rows"/>
+        eType="#//Object"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Return" lowerBound="1"
+        eType="#//Return"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PostState" eType="#//State"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="InteractionObject">
+  <eClassifiers xsi:type="ecore:EClass" name="Object">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ReturnValue">
+  <eClassifiers xsi:type="ecore:EClass" name="Return">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsVoid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
