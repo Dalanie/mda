@@ -9,7 +9,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="PreState" eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Sender" lowerBound="1"
         eType="#//Object"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Operation" eType="#//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Operation" lowerBound="1"
+        eType="#//Operation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Receiver" lowerBound="1"
         eType="#//Object"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Return" lowerBound="1"

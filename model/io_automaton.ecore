@@ -25,8 +25,8 @@
         eType="#//Activation"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Activation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Output" ordered="false"
-        upperBound="-1" eType="#//Output"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Output" upperBound="-1"
+        eType="#//Output"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Return" lowerBound="1"
         eType="#//ReturnValue"/>
   </eClassifiers>
