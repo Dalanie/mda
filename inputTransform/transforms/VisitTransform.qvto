@@ -14,18 +14,31 @@ mapping Interaction::mapInteraction() : Interaction {
 mapping Lifeline::mapLifeline() : Lifeline {
 	log ('  ' + self.name);
 
-	seqdia.objectsOfType(MessageOccurrenceSpecification)->select(mo | mo.covered->includes(self)).mapMO();
+	seqdia.objectsOfType(MessageOccurrenceSpecification)
+	    ->select(mo | mo.covered->includes(self))
+	    .mapMO();
 }
 
 helper MessageOccurrenceSpecification::mapMO() {
     -- empfangene Messages.
-    if(self.message.receiveEvent = self) { 
+    if(    self.message.receiveEvent = self
+       and self.message.messageSort <> MessageSort::reply) { 
 		log ('    receives ' + self.message.name);
 		self.message.sendEvent.oclAsType(MessageOccurrenceSpecification).covered.writeSender();
 		
-		seqdia.objectsOfType(BehaviorExecutionSpecification)->select(be | 
-		    be.start = self)->collect(be | 
-		        be.finish.oclAsType(MessageOccurrenceSpecification)).writeReturn();
+		var execs =
+		seqdia.objectsOfType(ExecutionSpecification)
+		    ->select(es | 
+		            es.start = self
+		        and es.finish.oclIsKindOf(MessageOccurrenceSpecification))
+		    ->collect(be | 
+		        be.finish.oclAsType(MessageOccurrenceSpecification))
+		    ->select(mo |
+		            mo.message.messageSort = MessageSort::reply
+		        and not mo.message.sendEvent.oclAsType(MessageOccurrenceSpecification).covered->intersection(self.covered)->isEmpty());
+		        
+		execs.writeReturn();
+
 	}
 }
 
