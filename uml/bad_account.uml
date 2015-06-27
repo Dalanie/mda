@@ -6,13 +6,28 @@
     <lifeline xmi:type="uml:Lifeline" xmi:id="_-3-v8BtuEeWZtMGn2vX08Q" name="consortium" coveredBy="_Sct64BtvEeWZtMGn2vX08Q _lcc7UBtvEeWZtMGn2vX08Q _ungVoBtvEeWZtMGn2vX08Q _wtOsABtvEeWZtMGn2vX08Q _xbijgBtvEeWZtMGn2vX08Q _05ZxgBtvEeWZtMGn2vX08Q _2mVNYBtvEeWZtMGn2vX08Q"/>
     <lifeline xmi:type="uml:Lifeline" xmi:id="__vXD4BtuEeWZtMGn2vX08Q" name="bank" coveredBy="_TyHAgBtvEeWZtMGn2vX08Q _msK2wBtvEeWZtMGn2vX08Q _vMxl4BtvEeWZtMGn2vX08Q _xbjxoBtvEeWZtMGn2vX08Q _05YjYBtvEeWZtMGn2vX08Q"/>
     <fragment xmi:type="uml:StateInvariant" xmi:id="_TyHAgBtvEeWZtMGn2vX08Q" name="WaitBankVerify" covered="__vXD4BtuEeWZtMGn2vX08Q">
-      <invariant xmi:type="uml:Constraint" xmi:id="_TyIOoBtvEeWZtMGn2vX08Q" name=""/>
+      <invariant xmi:type="uml:Constraint" xmi:id="_TyIOoBtvEeWZtMGn2vX08Q" name="">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_ZWoiIBv1EeW4Os61wVdTdg">
+          <language>JAVA</language>
+          <body>true</body>
+        </specification>
+      </invariant>
     </fragment>
     <fragment xmi:type="uml:StateInvariant" xmi:id="_QFvccBtvEeWZtMGn2vX08Q" name="WaitCard" covered="_-MHvgBtuEeWZtMGn2vX08Q">
-      <invariant xmi:type="uml:Constraint" xmi:id="_QFwqkBtvEeWZtMGn2vX08Q" name=""/>
+      <invariant xmi:type="uml:Constraint" xmi:id="_QFwqkBtvEeWZtMGn2vX08Q" name="">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_4WVJ8Bv0EeW4Os61wVdTdg" name="oexp">
+          <language>JAVA</language>
+          <body>true</body>
+        </specification>
+      </invariant>
     </fragment>
     <fragment xmi:type="uml:StateInvariant" xmi:id="_Sct64BtvEeWZtMGn2vX08Q" name="WaitVerify" covered="_-3-v8BtuEeWZtMGn2vX08Q">
-      <invariant xmi:type="uml:Constraint" xmi:id="_ScvJABtvEeWZtMGn2vX08Q" name=""/>
+      <invariant xmi:type="uml:Constraint" xmi:id="_ScvJABtvEeWZtMGn2vX08Q" name="">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_Wtv0UBv1EeW4Os61wVdTdg">
+          <language>JAVA</language>
+          <body>true</body>
+        </specification>
+      </invariant>
     </fragment>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_HXmAkBtvEeWZtMGn2vX08Q" name="ActionExecSpecStart" covered="_9feE4BtuEeWZtMGn2vX08Q" execution="_HXnOsBtvEeWZtMGn2vX08Q"/>
     <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_HXnOsBtvEeWZtMGn2vX08Q" name="ActionExecSpec" covered="_9feE4BtuEeWZtMGn2vX08Q" finish="_HXnOsRtvEeWZtMGn2vX08Q" start="_HXmAkBtvEeWZtMGn2vX08Q"/>
@@ -26,7 +41,12 @@
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_cYjR4BtvEeWZtMGn2vX08Q" name="MessageRecv0" covered="_9feE4BtuEeWZtMGn2vX08Q" message="_cYfngBtvEeWZtMGn2vX08Q"/>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_KBOVQBtvEeWZtMGn2vX08Q" name="ActionExecSpec0Finish" covered="_-MHvgBtuEeWZtMGn2vX08Q" execution="_KBNuMBtvEeWZtMGn2vX08Q"/>
     <fragment xmi:type="uml:StateInvariant" xmi:id="_fB22cBtvEeWZtMGn2vX08Q" name="WaitPasword" covered="_-MHvgBtuEeWZtMGn2vX08Q">
-      <invariant xmi:type="uml:Constraint" xmi:id="_fB5SsBtvEeWZtMGn2vX08Q" name=""/>
+      <invariant xmi:type="uml:Constraint" xmi:id="_A682YBv1EeW4Os61wVdTdg">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_A682YRv1EeW4Os61wVdTdg" name="oexp2">
+          <language>JAVA</language>
+          <body>true</body>
+        </specification>
+      </invariant>
     </fragment>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_v7yA8BtvEeWZtMGn2vX08Q" name="Message0Send" covered="_9feE4BtuEeWZtMGn2vX08Q" message="_v7wLwBtvEeWZtMGn2vX08Q"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_xbijgBtvEeWZtMGn2vX08Q" name="Message2Send" covered="_-3-v8BtuEeWZtMGn2vX08Q" message="_xbguUBtvEeWZtMGn2vX08Q"/>
@@ -65,13 +85,28 @@
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_jg2U0BtwEeWZtMGn2vX08Q" name="MessageRecv3" covered="_9feE4BtuEeWZtMGn2vX08Q" message="_jgzRgBtwEeWZtMGn2vX08Q"/>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_GjyIkBtwEeWZtMGn2vX08Q" name="ActionExecSpec8Finish" covered="_-MHvgBtuEeWZtMGn2vX08Q" execution="_GjxhgBtwEeWZtMGn2vX08Q"/>
     <fragment xmi:type="uml:StateInvariant" xmi:id="_msK2wBtvEeWZtMGn2vX08Q" name="WaitBankVerify" covered="__vXD4BtuEeWZtMGn2vX08Q">
-      <invariant xmi:type="uml:Constraint" xmi:id="_msMr8BtvEeWZtMGn2vX08Q" name=""/>
+      <invariant xmi:type="uml:Constraint" xmi:id="_msMr8BtvEeWZtMGn2vX08Q" name="">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_gwd2cBv1EeW4Os61wVdTdg">
+          <language>JAVA</language>
+          <body>true</body>
+        </specification>
+      </invariant>
     </fragment>
     <fragment xmi:type="uml:StateInvariant" xmi:id="_lcc7UBtvEeWZtMGn2vX08Q" name="WaitVerify" covered="_-3-v8BtuEeWZtMGn2vX08Q">
-      <invariant xmi:type="uml:Constraint" xmi:id="_lcewgBtvEeWZtMGn2vX08Q" name=""/>
+      <invariant xmi:type="uml:Constraint" xmi:id="_lcewgBtvEeWZtMGn2vX08Q" name="">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_eSQHkBv1EeW4Os61wVdTdg">
+          <language>JAVA</language>
+          <body>true</body>
+        </specification>
+      </invariant>
     </fragment>
     <fragment xmi:type="uml:StateInvariant" xmi:id="_hEUdcBtvEeWZtMGn2vX08Q" name="WaitTakeCard" covered="_-MHvgBtuEeWZtMGn2vX08Q">
-      <invariant xmi:type="uml:Constraint" xmi:id="_hEVrkBtvEeWZtMGn2vX08Q" name=""/>
+      <invariant xmi:type="uml:Constraint" xmi:id="_hEVrkBtvEeWZtMGn2vX08Q" name="">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_cAv_ABv1EeW4Os61wVdTdg">
+          <language>JAVA</language>
+          <body>true</body>
+        </specification>
+      </invariant>
     </fragment>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_h6pzEBtwEeWZtMGn2vX08Q" name="ActionExecSpec11Finish" covered="_9feE4BtuEeWZtMGn2vX08Q" execution="_h6pMABtwEeWZtMGn2vX08Q"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_z-6pwBtwEeWZtMGn2vX08Q" name="MessageSend" covered="_9feE4BtuEeWZtMGn2vX08Q" message="_z-3mcBtwEeWZtMGn2vX08Q"/>
@@ -83,7 +118,12 @@
     <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_tIvcIBtwEeWZtMGn2vX08Q" name="ActionExecSpec13" covered="_9feE4BtuEeWZtMGn2vX08Q" finish="_tIwqQBtwEeWZtMGn2vX08Q" start="_1Z72QBtwEeWZtMGn2vX08Q"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_1Z72QBtwEeWZtMGn2vX08Q" name="MessageRecv" covered="_9feE4BtuEeWZtMGn2vX08Q" message="_1Z2WsBtwEeWZtMGn2vX08Q"/>
     <fragment xmi:type="uml:StateInvariant" xmi:id="_iJpGwBtvEeWZtMGn2vX08Q" name="WaitCard" covered="_-MHvgBtuEeWZtMGn2vX08Q">
-      <invariant xmi:type="uml:Constraint" xmi:id="_iJq78BtvEeWZtMGn2vX08Q" name=""/>
+      <invariant xmi:type="uml:Constraint" xmi:id="_iJq78BtvEeWZtMGn2vX08Q" name="">
+        <specification xmi:type="uml:OpaqueExpression" xmi:id="_jchNABv1EeW4Os61wVdTdg">
+          <language>JAVA</language>
+          <body>true</body>
+        </specification>
+      </invariant>
     </fragment>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_tIwqQBtwEeWZtMGn2vX08Q" name="ActionExecSpec13Finish" covered="_9feE4BtuEeWZtMGn2vX08Q" execution="_tIvcIBtwEeWZtMGn2vX08Q"/>
     <message xmi:type="uml:Message" xmi:id="_J3GI4BtvEeWZtMGn2vX08Q" name="InsertCard" receiveEvent="_J3JMMBtvEeWZtMGn2vX08Q" sendEvent="_J3H-EBtvEeWZtMGn2vX08Q"/>
