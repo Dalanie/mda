@@ -1,0 +1,81 @@
+modeltype UML uses 'http://www.eclipse.org/uml2/5.0.0/UML';
+modeltype IMD uses 'http://www.studieren.se/scenario_projection';
+
+transformation scenarioProjection(in seq : UML, out scp : IMD);
+
+main() {
+	seq.objectsOfType(Interaction).map mapInteraction();
+}
+
+mapping Interaction::mapInteraction() : Scenario {
+
+   -- Sammle zu jeder Lifeline alle zu ihr rein gehenden MessageOccurrences.
+   -- bei denen es sich NICHT um Antwortnachrichten handelt.
+   var receivedMessages = 
+	   self.lifeline
+	       ->collect(lifeline |
+	             seq.objectsOfType(MessageOccurrenceSpecification)
+	       ->select(mo | 
+	             mo.covered->includes(lifeline)))->flatten()
+	       ->select(mo |
+	                 mo.message.receiveEvent = mo
+	             and mo.message.messageSort <> MessageSort::reply);
+	             
+	-- Für jede empfangene Nachricht gibt es einen solchen Eintrag.
+	result.Communication += receivedMessages.map mapCommunication();
+}
+
+mapping MessageOccurrenceSpecification::mapCommunication() : Communication {
+	
+	-- Setze den Empfänger.
+	result.Receiver := self.covered->asOrderedSet()->first().map mapReceiverOrSender();
+	
+	-- Setze den Absender.
+	result.Sender := self.message.sendEvent.oclAsType(MessageOccurrenceSpecification).covered->asOrderedSet()->first().map mapReceiverOrSender();
+	
+	-- Setze die Operation (= Nachricht), die empfangen wird.
+	result.Operation := self.message.map mapOperation();
+	
+	-- Ermittle die MessageOccurrences für den Rückgabewert (sollten 0 oder genau 1 sein).
+    var results =
+		seq.objectsOfType(ExecutionSpecification)
+		    ->select(es | 
+		            es.start = self
+		        and es.finish.oclIsKindOf(MessageOccurrenceSpecification))
+		    ->collect(be | 
+		        be.finish.oclAsType(MessageOccurrenceSpecification))
+		    ->select(mo |
+		            mo.message.messageSort = MessageSort::reply
+		        and not mo.message.sendEvent.oclAsType(MessageOccurrenceSpecification).covered->intersection(self.covered)->isEmpty());
+		        
+	if (results->isEmpty()) {
+		-- Rückgabetyp ist nur ein Void.
+		result.Return := createVoid();
+	} else {
+		-- Wir haben eine Rückantwort.
+		result.Return := results->asOrderedSet()->first().message.map mapReturn();
+	}
+}
+
+-- Mappe eine Lifeline als Receiver oder Sender Object.
+mapping Lifeline::mapReceiverOrSender() : Object {
+	result.Name := self.name;
+}
+
+-- Mappe eine Nachricht auf eine Operation (= empfangene Nachricht).
+mapping Message::mapOperation() : IMD::Operation {
+	result.Name := self.name;
+}
+
+-- Mappe eine Nachricht auf ein Return (= gesendete Nachricht).
+mapping Message::mapReturn() : IMD::Return {
+	result.Name := self.name;
+}
+
+-- Erzeuge den Void-Type (könnnte man besser machen, sodass es insgesamt nur ein VOID-Objekt gibt).
+helper createVoid() : IMD::Return {
+	return object IMD::Return {
+	    Name   := 'Void';
+		IsVoid := true;
+	};
+}

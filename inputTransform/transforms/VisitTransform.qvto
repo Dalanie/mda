@@ -1,0 +1,51 @@
+modeltype UML uses 'http://www.eclipse.org/uml2/5.0.0/UML';
+
+transformation VisitTransform(in seqdia : UML, out line : UML);
+
+main() {
+	seqdia.objectsOfType(Interaction).map mapInteraction();
+}
+
+mapping Interaction::mapInteraction() : Interaction {
+	log(self.name);
+	self.lifeline->map mapLifeline();
+}
+
+mapping Lifeline::mapLifeline() : Lifeline {
+	log ('  ' + self.name);
+
+	seqdia.objectsOfType(MessageOccurrenceSpecification)
+	    ->select(mo | mo.covered->includes(self))
+	    .mapMO();
+}
+
+helper MessageOccurrenceSpecification::mapMO() {
+    -- empfangene Messages.
+    if(    self.message.receiveEvent = self
+       and self.message.messageSort <> MessageSort::reply) { 
+		log ('    receives ' + self.message.name);
+		self.message.sendEvent.oclAsType(MessageOccurrenceSpecification).covered.writeSender();
+		
+		var execs =
+		seqdia.objectsOfType(ExecutionSpecification)
+		    ->select(es | 
+		            es.start = self
+		        and es.finish.oclIsKindOf(MessageOccurrenceSpecification))
+		    ->collect(be | 
+		        be.finish.oclAsType(MessageOccurrenceSpecification))
+		    ->select(mo |
+		            mo.message.messageSort = MessageSort::reply
+		        and not mo.message.sendEvent.oclAsType(MessageOccurrenceSpecification).covered->intersection(self.covered)->isEmpty());
+		        
+		execs.writeReturn();
+
+	}
+}
+
+helper Lifeline::writeSender() {
+	log('     (sent by ' + self.name + ')');
+}
+
+helper MessageOccurrenceSpecification::writeReturn() {
+	log('     result: ' + self.message.name);
+}

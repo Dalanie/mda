@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:Trace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http:///www.eclipse.org/m2m/qvt/operational/trace.ecore">
+  <traceRecords>
+    <mappingOperation name="mapInteraction" package="VisitTransform" module="VisitTransform">
+      <runtimeMappingOperation href="qvto:/module.env#//mapInteraction"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Interaction">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_ilH-UBtuEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Interaction">
+        <value>
+          <modelElement href="VisitTransform.uml#_Nsd70BzLEeWeyf1-9N9uIg"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapLifeline" package="VisitTransform" module="VisitTransform">
+      <runtimeMappingOperation href="qvto:/module.env#//mapLifeline"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_szt5QBtuEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Lifeline">
+        <value>
+          <modelElement href="VisitTransform.uml#_Nsd70RzLEeWeyf1-9N9uIg"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapLifeline" package="VisitTransform" module="VisitTransform">
+      <runtimeMappingOperation href="qvto:/module.env#//mapLifeline"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_v7vaIBtuEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Lifeline">
+        <value>
+          <modelElement href="VisitTransform.uml#_Nsd70hzLEeWeyf1-9N9uIg"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapLifeline" package="VisitTransform" module="VisitTransform">
+      <runtimeMappingOperation href="qvto:/module.env#//mapLifeline"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_u-zQwBtuEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Lifeline">
+        <value>
+          <modelElement href="VisitTransform.uml#_Nsd70xzLEeWeyf1-9N9uIg"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapLifeline" package="VisitTransform" module="VisitTransform">
+      <runtimeMappingOperation href="qvto:/module.env#//mapLifeline"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_seSb0BtuEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Lifeline">
+        <value>
+          <modelElement href="VisitTransform.uml#_Nsd71BzLEeWeyf1-9N9uIg"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+</trace:Trace>

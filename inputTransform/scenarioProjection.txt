@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="null ../model/model/scenario_projection.ecore">
+  <Scenario>
+    <Communication Sender="/2" Operation="/3" Receiver="/1" Return="/4"/>
+    <Communication Sender="/2" Operation="/11" Receiver="/1" Return="/12"/>
+    <Communication Sender="/2" Operation="/15" Receiver="/1" Return="/16"/>
+    <Communication Sender="/2" Operation="/23" Receiver="/20" Return="/24"/>
+    <Communication Sender="/2" Operation="/25" Receiver="/1" Return="/26"/>
+    <Communication Sender="/1" Operation="/5" Receiver="/2" Return="/6"/>
+    <Communication Sender="/20" Operation="/21" Receiver="/19" Return="/22"/>
+    <Communication Sender="/1" Operation="/17" Receiver="/2" Return="/18"/>
+    <Communication Sender="/2" Operation="/7" Receiver="/1" Return="/8"/>
+    <Communication Sender="/2" Operation="/13" Receiver="/1" Return="/14"/>
+    <Communication Sender="/1" Operation="/9" Receiver="/2" Return="/10"/>
+  </Scenario>
+  <Object Name="user"/>
+  <Object Name="atm"/>
+  <Operation Name="printReceipt"/>
+  <Return Name="Void" IsVoid="true"/>
+  <Operation Name="InsertCard"/>
+  <Return Name="Void" IsVoid="true"/>
+  <Operation Name="requestTakeCard"/>
+  <Return Name="Void" IsVoid="true"/>
+  <Operation Name="enterPassword"/>
+  <Return Name="Void" IsVoid="true"/>
+  <Operation Name="requestPassword"/>
+  <Return Name="Void" IsVoid="true"/>
+  <Operation Name="ejectCard"/>
+  <Return Name="Void" IsVoid="true"/>
+  <Operation Name="displayMainScreen"/>
+  <Return Name="Void" IsVoid="true"/>
+  <Operation Name="takeCard"/>
+  <Return Name="Void" IsVoid="true"/>
+  <Object Name="bank"/>
+  <Object Name="consortium"/>
+  <Operation Name="verifyCardWithBank"/>
+  <Return Name=":badBankAccount"/>
+  <Operation Name="verifyAccount"/>
+  <Return Name=":badAccount"/>
+  <Operation Name="badAccountMessage"/>
+  <Return Name="Void" IsVoid="true"/>
+</xmi:XMI>
