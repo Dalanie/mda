@@ -54,7 +54,43 @@ mapping MessageOccurrenceSpecification::mapCommunication() : Communication {
 	} else {
 		-- Wir haben eine Rückantwort.
 		result.Return := results->asOrderedSet()->first().message.map mapReturn();
-	}
+	};
+	
+	-- Pre-States sind die StateInvariants, deren erstes constrainedElement die empfangene
+	-- Message ist.
+	-- Pre-State muss auf der Lifeline des Empfängers liegen.
+	var preStates = 
+		seq.objectsOfType(StateInvariant)
+		    ->select(si | 
+		        not si.covered->intersection(self.covered)->isEmpty()
+		        and si.ownedElement
+		                ->asOrderedSet()->first().oclAsType(Constraint)
+		                .constrainedElement->first() = self.message);
+		           
+	-- Post-States sind die State-Invariants, deren zweites constrainedElement die empfangene
+	-- Message ist.
+	-- Post-State muss auf der Lifeline es Empfängers liegen.     
+	var postStates =
+	    seq.objectsOfType(StateInvariant)
+		    ->select(si | 
+		       not  si.covered->intersection(self.covered)->isEmpty()
+		       and  si.ownedElement
+		                ->asOrderedSet()->first().oclAsType(Constraint)
+		                .constrainedElement->last() = self.message);
+		                
+	var allStates = seq.objectsOfType(StateInvariant);
+	
+	log(result.Receiver.Name + ' receives ' + result.Operation.Name);
+		                
+	if (not preStates->isEmpty()) {
+		result.PreState := preStates->asOrderedSet()->first().mapState();
+		log ('  before: ' + result.PreState.Name);
+	};
+	
+	if (not postStates->isEmpty()) {
+		result.PostState := postStates->asOrderedSet()->first().mapState();
+		log ('  after: ' + result.PostState.Name);
+	};
 }
 
 -- Mappe eine Lifeline als Receiver oder Sender Object.
@@ -72,10 +108,36 @@ mapping Message::mapReturn() : IMD::Return {
 	result.Name := self.name;
 }
 
--- Erzeuge den Void-Type (könnnte man besser machen, sodass es insgesamt nur ein VOID-Objekt gibt).
+-- Erzeuge den Void-Type.
 helper createVoid() : IMD::Return {
-	return object IMD::Return {
-	    Name   := 'Void';
-		IsVoid := true;
+	var existVoids = 
+	    scp.objectsOfType(IMD::Return)
+	        ->select(vo | vo.IsVoid = true);
+
+	if (not existVoids->isEmpty()) {
+		return existVoids->asOrderedSet()->first();
+	} else {
+		return object IMD::Return {
+		    Name   := 'Void';
+			IsVoid := true;
+		};
 	};
+	return null;
+}
+
+helper StateInvariant::mapState() : IMD::State {
+	var existStates =
+	    scp.objectsOfType(IMD::State)
+	        ->select(st | st.Name = self.name);
+	        
+	if (not existStates->isEmpty()) {
+		-- Bestehenden State benutzen.
+		return existStates->asOrderedSet()->first();
+	} else {
+		-- State neu anlegen.
+		return object IMD::State {
+			Name := self.name;
+		};
+	};
+	return null;
 }

@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:Trace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http:///www.eclipse.org/m2m/qvt/operational/trace.ecore">
+  <traceRecords>
+    <mappingOperation name="mapInteraction" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapInteraction"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Interaction">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_ilH-UBtuEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Scenario">
+        <value>
+          <modelElement href="scenarioProjection.txt#/0"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_YYICABtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scenarioProjection.txt#/0/@Communication.2"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReceiverOrSender" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReceiverOrSender"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_szt5QBtuEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Object">
+        <value>
+          <modelElement href="scenarioProjection.txt#/1"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReceiverOrSender" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReceiverOrSender"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_seSb0BtuEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Object">
+        <value>
+          <modelElement href="scenarioProjection.txt#/2"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_YYFlwBtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scenarioProjection.txt#/3"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_k19bsBtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scenarioProjection.txt#/0/@Communication.4"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReceiverOrSender" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReceiverOrSender"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_v7vaIBtuEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Object">
+        <value>
+          <modelElement href="scenarioProjection.txt#/6"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReceiverOrSender" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReceiverOrSender"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_u-zQwBtuEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Object">
+        <value>
+          <modelElement href="scenarioProjection.txt#/7"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_k16YYBtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scenarioProjection.txt#/8"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReturn" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReturn"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_nr_NoBtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Return">
+        <value>
+          <modelElement href="scenarioProjection.txt#/9"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_hmJQcBzVEeWFkcXCeegNPA"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scenarioProjection.txt#/0/@Communication.9"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_hl4KsBzVEeWFkcXCeegNPA"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scenarioProjection.txt#/11"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_jFh_4BtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scenarioProjection.txt#/0/@Communication.0"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_jFe8kBtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scenarioProjection.txt#/12"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_QESjkBtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scenarioProjection.txt#/0/@Communication.8"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_QEPgQBtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scenarioProjection.txt#/14"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_47VyYBtuEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scenarioProjection.txt#/0/@Communication.6"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_47SvEBtuEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scenarioProjection.txt#/15"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#__5M_kBtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scenarioProjection.txt#/0/@Communication.1"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#__5J8QBtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scenarioProjection.txt#/17"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_1oMCwBtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scenarioProjection.txt#/0/@Communication.10"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_1oI_cBtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scenarioProjection.txt#/18"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_d-X4gBzVEeWFkcXCeegNPA"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scenarioProjection.txt#/0/@Communication.5"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_d9uYQBzVEeWFkcXCeegNPA"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scenarioProjection.txt#/20"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_tQQugBtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scenarioProjection.txt#/0/@Communication.3"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_tQNEIBtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scenarioProjection.txt#/21"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_7DsCIBtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scenarioProjection.txt#/0/@Communication.7"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_7Do-0BtyEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scenarioProjection.txt#/22"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_G3gOcBtzEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scenarioProjection.txt#/0/@Communication.11"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_password.uml#_G3ckEBtzEeWZtMGn2vX08Q"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scenarioProjection.txt#/23"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+</trace:Trace>
