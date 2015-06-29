@@ -5,25 +5,29 @@ transformation scenarioProjection(in seq : UML, out scp : IMD);
 
 main() {
 	seq.objectsOfType(Interaction).map mapInteraction();
+	
 }
 
 mapping Interaction::mapInteraction() : Scenario {
 
-   -- Sammle zu jeder Lifeline alle zu ihr rein gehenden MessageOccurrences.
+   -- Sammle alle MessageOccurrences,
    -- bei denen es sich NICHT um Antwortnachrichten handelt.
    var receivedMessages = 
-	   self.lifeline
-	       ->collect(lifeline |
-	             seq.objectsOfType(MessageOccurrenceSpecification)
-	       ->select(mo | 
-	             mo.covered->includes(lifeline)))->flatten()
+	   self.fragment
+	       ->select(f |
+	               f.oclIsKindOf(MessageOccurrenceSpecification))
+	       ->collect(f |
+	               f.oclAsType(MessageOccurrenceSpecification))
 	       ->select(mo |
 	                 mo.message.receiveEvent = mo
 	             and mo.message.messageSort <> MessageSort::reply);
 	             
+	             
 	-- Für jede empfangene Nachricht gibt es einen solchen Eintrag.
 	result.Communication += receivedMessages.map mapCommunication();
 }
+
+
 
 mapping MessageOccurrenceSpecification::mapCommunication() : Communication {
 	
@@ -79,18 +83,30 @@ mapping MessageOccurrenceSpecification::mapCommunication() : Communication {
 		                .constrainedElement->last() = self.message);
 		                
 	var allStates = seq.objectsOfType(StateInvariant);
-	
-	log(result.Receiver.Name + ' receives ' + result.Operation.Name);
+		               
+	var preStateName : String,
+	    postStateName : String;               
 		                
 	if (not preStates->isEmpty()) {
 		result.PreState := preStates->asOrderedSet()->first().mapState();
-		log ('  before: ' + result.PreState.Name);
+		preStateName := result.PreState.Name;
+	} else {
+	    preStateName := '      -      ';
 	};
 	
 	if (not postStates->isEmpty()) {
 		result.PostState := postStates->asOrderedSet()->first().mapState();
-		log ('  after: ' + result.PostState.Name);
+		postStateName := result.PostState.Name;
+	} else {
+		postStateName := '      -      ';
 	};
+
+	log (preStateName + '|' + 
+	     result.Sender.Name   + ' | ' +
+	     result.Operation.Name + ' | ' + 
+	     result.Receiver.Name  + ' | ' + 
+	     result.Return.Name    + ' | ' + 
+	     postStateName);
 }
 
 -- Mappe eine Lifeline als Receiver oder Sender Object.
@@ -110,6 +126,7 @@ mapping Message::mapReturn() : IMD::Return {
 
 -- Erzeuge den Void-Type.
 helper createVoid() : IMD::Return {
+    -- Sicherstellen, dass er nur einmal angelegt wird.
 	var existVoids = 
 	    scp.objectsOfType(IMD::Return)
 	        ->select(vo | vo.IsVoid = true);
@@ -126,6 +143,7 @@ helper createVoid() : IMD::Return {
 }
 
 helper StateInvariant::mapState() : IMD::State {
+    -- normales Mapping reicht nicht aus, da States mehrmals im Diagramm vorkommen könnten.
 	var existStates =
 	    scp.objectsOfType(IMD::State)
 	        ->select(st | st.Name = self.name);

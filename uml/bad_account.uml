@@ -105,7 +105,7 @@
     <fragment xmi:type="uml:ActionExecutionSpecification" xmi:id="_tIvcIBtwEeWZtMGn2vX08Q" name="ActionExecSpec13" covered="_9feE4BtuEeWZtMGn2vX08Q" finish="_tIwqQBtwEeWZtMGn2vX08Q" start="_1Z72QBtwEeWZtMGn2vX08Q"/>
     <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_1Z72QBtwEeWZtMGn2vX08Q" name="MessageRecv" covered="_9feE4BtuEeWZtMGn2vX08Q" message="_1Z2WsBtwEeWZtMGn2vX08Q"/>
     <fragment xmi:type="uml:ExecutionOccurrenceSpecification" xmi:id="_tIwqQBtwEeWZtMGn2vX08Q" name="ActionExecSpec13Finish" covered="_9feE4BtuEeWZtMGn2vX08Q" execution="_tIvcIBtwEeWZtMGn2vX08Q"/>
-    <message xmi:type="uml:Message" xmi:id="_J3GI4BtvEeWZtMGn2vX08Q" name="InsertCard" receiveEvent="_J3JMMBtvEeWZtMGn2vX08Q" sendEvent="_J3H-EBtvEeWZtMGn2vX08Q"/>
+    <message xmi:type="uml:Message" xmi:id="_J3GI4BtvEeWZtMGn2vX08Q" name="InsertCard" receiveEvent="_J3JMMBtvEeWZtMGn2vX08Q" sendEvent="_J3H-EBtvEeWZtMGn2vX08Q" signature="_cYfngBtvEeWZtMGn2vX08Q"/>
     <message xmi:type="uml:Message" xmi:id="_cYfngBtvEeWZtMGn2vX08Q" name="requestPassword" receiveEvent="_cYjR4BtvEeWZtMGn2vX08Q" sendEvent="_cYhcsBtvEeWZtMGn2vX08Q"/>
     <message xmi:type="uml:Message" xmi:id="_v7wLwBtvEeWZtMGn2vX08Q" name="enterPassword" receiveEvent="_v7z2IBtvEeWZtMGn2vX08Q" sendEvent="_v7yA8BtvEeWZtMGn2vX08Q"/>
     <message xmi:type="uml:Message" xmi:id="_wtLBoBtvEeWZtMGn2vX08Q" name="verifyAccount" receiveEvent="_wtOsABtvEeWZtMGn2vX08Q" sendEvent="_wtM20BtvEeWZtMGn2vX08Q"/>

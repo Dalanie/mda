@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="null ../model/model/scenario_projection.ecore">
   <Scenario>
-    <Communication PreState="/15" Sender="/1" Operation="/13" Receiver="/12" Return="/14" PostState="/15"/>
-    <Communication PreState="/9" Sender="/6" Operation="/17" Receiver="/2" Return="/4" PostState="/11"/>
-    <Communication Sender="/2" Operation="/22" Receiver="/6" Return="/4"/>
-    <Communication PreState="/11" Sender="/6" Operation="/10" Receiver="/2" Return="/4" PostState="/8"/>
-    <Communication PreState="/8" Sender="/6" Operation="/7" Receiver="/2" Return="/4" PostState="/9"/>
-    <Communication Sender="/2" Operation="/16" Receiver="/6" Return="/4"/>
-    <Communication Sender="/2" Operation="/20" Receiver="/6" Return="/4"/>
-    <Communication PreState="/5" Sender="/2" Operation="/3" Receiver="/1" Return="/4" PostState="/5"/>
-    <Communication Sender="/2" Operation="/21" Receiver="/6" Return="/4"/>
-    <Communication Sender="/2" Operation="/18" Receiver="/6" Return="/4"/>
-    <Communication Sender="/2" Operation="/19" Receiver="/6" Return="/4"/>
+    <Communication PreState="/5" Sender="/2" Operation="/3" Receiver="/1" Return="/4" PostState="/6"/>
+    <Communication Sender="/1" Operation="/7" Receiver="/2" Return="/4"/>
+    <Communication PreState="/12" Sender="/9" Operation="/10" Receiver="/8" Return="/11" PostState="/12"/>
+    <Communication PreState="/6" Sender="/2" Operation="/13" Receiver="/1" Return="/4" PostState="/14"/>
+    <Communication PreState="/16" Sender="/1" Operation="/15" Receiver="/9" Return="/4" PostState="/16"/>
+    <Communication Sender="/1" Operation="/17" Receiver="/2" Return="/4"/>
+    <Communication Sender="/1" Operation="/18" Receiver="/2" Return="/4"/>
+    <Communication Sender="/1" Operation="/19" Receiver="/2" Return="/4"/>
+    <Communication Sender="/1" Operation="/20" Receiver="/2" Return="/4"/>
+    <Communication PreState="/14" Sender="/2" Operation="/21" Receiver="/1" Return="/4" PostState="/5"/>
+    <Communication Sender="/1" Operation="/22" Receiver="/2" Return="/4"/>
   </Scenario>
-  <Object Name="consortium"/>
   <Object Name="atm"/>
-  <Operation Name="verifyAccount"/>
-  <Return Name="Void" IsVoid="true"/>
-  <State Name="WaitVerify"/>
   <Object Name="user"/>
   <Operation Name="InsertCard"/>
+  <Return Name="Void" IsVoid="true"/>
   <State Name="WaitCard"/>
   <State Name="WaitPasword"/>
-  <Operation Name="takeCard"/>
-  <State Name="WaitTakeCard"/>
+  <Operation Name="requestPassword"/>
   <Object Name="bank"/>
+  <Object Name="consortium"/>
   <Operation Name="verifyCardWithBank"/>
   <Return Name=":badBankAccount"/>
   <State Name="WaitBankVerify"/>
-  <Operation Name="badAccountMessage"/>
   <Operation Name="enterPassword"/>
-  <Operation Name="displayMainScreen"/>
+  <State Name="WaitTakeCard"/>
+  <Operation Name="verifyAccount"/>
+  <State Name="WaitVerify"/>
+  <Operation Name="badAccountMessage"/>
   <Operation Name="printReceipt"/>
-  <Operation Name="requestTakeCard"/>
-  <Operation Name="requestPassword"/>
   <Operation Name="ejectCard"/>
+  <Operation Name="requestTakeCard"/>
+  <Operation Name="takeCard"/>
+  <Operation Name="displayMainScreen"/>
 </xmi:XMI>
