@@ -1,0 +1,18 @@
+modeltype IMD uses 'http://www.studieren.se/scenario_projection';
+modeltype BMO uses 'http://www.studieren.se/behaviour_projection';
+
+transformation behaviourProjection(in scenario : IMD, out behaviour : BMO);
+
+main() {
+	var systemObjects = collectSystemObjects();
+}
+
+helper collectSystemObjects() : Set(Object){
+	var objects = scenario.objectsOfType(Communication)->collect(Sender);
+	objects += scenario.objectsOfType(Communication)->collect(Receiver);
+	return objects->asSet();
+}
+
+helper Object::print() {
+	log('Object ' + self.Name);	
+}
