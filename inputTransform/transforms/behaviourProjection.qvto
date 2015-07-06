@@ -5,6 +5,7 @@ transformation behaviourProjection(in scenario : IMD, out behaviour : BMO);
 
 main() {
 	var systemObjects = collectSystemObjects();
+	systemObjects->print();
 }
 
 helper collectSystemObjects() : Set(Object){
