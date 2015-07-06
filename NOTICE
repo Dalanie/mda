@@ -1,0 +1,3 @@
+Zum Testen der "behaviourProjection.qvto" bitte als Input die Datei "bad_account.scenarioProjection" aus "out" benutzen, und nicht die Ausgabe von "scenarioProjection.qvto" auf die UML Datei angewandt.
+Grund:
+Innerhalb der UML Sequenzdiagramme sind die Pfeile nur in der jeweiligen Lifeline sortiert, aber nicht global. Dadurch koennen in der Ausgabe der 1. Projektion Communications falsch sortiert sein. Ich hab das fuer den einen Fall in "bad_account" korrigiert und die Ausgabe in "out" gespeichert.
