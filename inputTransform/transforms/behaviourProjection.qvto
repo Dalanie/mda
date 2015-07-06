@@ -5,13 +5,14 @@ transformation behaviourProjection(in scenario : IMD, out behaviour : BMO);
 
 main() {
 	var systemObjects = collectSystemObjects();
-	systemObjects.map transformForObject();
+	systemObjects->getProjectionForObject();
+	//systemObjects.map transformForObject();
 }
 
-mapping Object::transformForObject() : Block {
-	var projectionSet = self.getProjection();	
-	projectionSet->print('  ');
-}
+//mapping Object::transformForObject() : Block {
+//	var projectionSet = self.getProjectionForObject();	
+//	projectionSet->print('  ');
+//}
 
 helper collectSystemObjects() : Set(Object){
 	var objects = scenario.objectsOfType(Scenario)->asOrderedSet().Communication->collect(Sender);
@@ -19,18 +20,91 @@ helper collectSystemObjects() : Set(Object){
 	return objects->asSet();
 }
 
-helper Object::getProjection() : OrderedSet(Communication) {
-	log('Projection for Object ' + self.Name);
-	var projectionSet = scenario.objectsOfType(Scenario)->asOrderedSet().Communication->select(c | c.Sender = self or c.Receiver = self);
-	return projectionSet->asOrderedSet();
+mapping OrderedSet(Communication)::transformCommunicationSet(in o : Object) : Block {
+	// TODO do we need o? (somewhere we should store where the message is going, but we also need to store which object this block belongs to)
+
+	// copy pre state of incomming message
+	result.PreState := object BMO::State { Name := self->first().PreState.Name + ' ' + o.Name };
+	// copy operation
+	result.InMessage := object BMO::InMessage {  };
+	result.InMessage.Operation := object BMO::Operation { Name := self->first().Operation.Name };
+	var outMessages = self->asOrderedSet()->select(c | c <> self->first()).map transformCommunication();
+	// copy the last return value of the OutMessages as result value of the whole activation
+	result.Activation := object BMO::Activation { ReturnValue := outMessages->last().ReturnValue };
+	// transform every outgoing message in Communication into an OutMessage
+	result.Activation.OutMessage += outMessages;
+	// copy post state of last outgoing message
+	result.PostState := object BMO::State { Name := self->last().PostState.Name };
 }
 
+mapping Communication::transformCommunication() : OutMessage {
+	log('mapping communication ' + self.Operation.Name);
+	// copy the operation name
+	result.Operation := object BMO::Operation { Name := self.Operation.Name };
+	// copy the receiver (TODO not quite sure if this is correct, so TODO in "transformCommunicationSet")
+	result.Object := object BMO::Object { Name := self.Receiver.Name };
+	// copy the return type
+	result.ReturnValue := object BMO::Return { Name := self.Return.Name };
+}
+
+helper Object::getProjectionForObject() {
+	log('Projection for Object ' + self.Name);
+	// get all communications where self is either sender or receiver
+	var projectionSet = scenario.objectsOfType(Scenario)->asOrderedSet().Communication->select(c | c.Sender = self or c.Receiver = self);
+	// split the communication set into subsets that until the next receving message (exclusive)
+	var splittedProjections = projectionSet->asOrderedSet()->splitOnIncomingMessages(self);
+	splittedProjections.printOrderedSet('  ');
+	
+	splittedProjections.map transformCommunicationSet(self);
+}
+
+helper OrderedSet(Communication)::splitOnIncomingMessages(in o : Object) : OrderedSet(OrderedSet(Communication)) {
+	if(self->isEmpty()) return null;
+	
+	// get all incoming messages
+	var incomingMessage := self->select(c | c.Receiver = o);
+	// get the first incoming message
+	var firstIncommingMessage := incomingMessage->first();
+	// get the offset of the first incoming message
+	var offset := self->indexOf(firstIncommingMessage);
+	// make sure we actually cut something off
+	if(offset = 1){
+		if(incomingMessage->size() = 1){
+			// the first message was incoming, everything after that is outgoing, so there is only this one block
+			offset := self->size() + 1;
+		} else {
+			// cut of the first part, and continue with the one after (including) the second incoming message
+			offset := self->indexOf(incomingMessage->at(2));
+		}
+	};
+	// get all the elements before (exclusive) the first incoming message
+	var firstSubset = self->subOrderedSet(1, offset - 1);
+	// create a new Set of Sets
+	var resultSet := OrderedSet{firstSubset};
+
+	// get the remaining elements
+	if(offset <= self->size()){
+		var rest = self->subOrderedSet(offset, self->size());
+		var recResult = rest->splitOnIncomingMessages(o);
+		// add all recursively splitted groups
+		recResult->forEach(communicationset) {
+			resultSet := resultSet->append(communicationset);
+		};
+	};
+	return resultSet;
+}
 
 // debugging
-helper Object::print() {
+helper Object::printObject() {
 	log('Object ' + self.Name);	
 }
 
-helper Communication::print(in tabs : String) {
+helper Communication::printCommunication(in tabs : String) {
 	log(tabs + 'Communication ' + self.Operation.Name + ' from ' + self.Sender.Name + ' to ' + self.Receiver.Name);
+}
+
+helper OrderedSet(Communication)::printOrderedSet(in tabs : String) {
+	log(tabs + ' next Set');
+	self->printCommunication(tabs + ' ');
+	log('');
 }
