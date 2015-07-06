@@ -5,15 +5,32 @@ transformation behaviourProjection(in scenario : IMD, out behaviour : BMO);
 
 main() {
 	var systemObjects = collectSystemObjects();
-	systemObjects->print();
+	systemObjects.map transformForObject();
+}
+
+mapping Object::transformForObject() : Block {
+	var projectionSet = self.getProjection();	
+	projectionSet->print('  ');
 }
 
 helper collectSystemObjects() : Set(Object){
-	var objects = scenario.objectsOfType(Communication)->collect(Sender);
-	objects += scenario.objectsOfType(Communication)->collect(Receiver);
+	var objects = scenario.objectsOfType(Scenario)->asOrderedSet().Communication->collect(Sender);
+	objects += scenario.objectsOfType(Scenario)->asOrderedSet().Communication->collect(Receiver);
 	return objects->asSet();
 }
 
+helper Object::getProjection() : OrderedSet(Communication) {
+	log('Projection for Object ' + self.Name);
+	var projectionSet = scenario.objectsOfType(Scenario)->asOrderedSet().Communication->select(c | c.Sender = self or c.Receiver = self);
+	return projectionSet->asOrderedSet();
+}
+
+
+// debugging
 helper Object::print() {
 	log('Object ' + self.Name);	
+}
+
+helper Communication::print(in tabs : String) {
+	log(tabs + 'Communication ' + self.Operation.Name + ' from ' + self.Sender.Name + ' to ' + self.Receiver.Name);
 }
