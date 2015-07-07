@@ -5,14 +5,10 @@ transformation behaviourProjection(in scenario : IMD, out behaviour : BMO);
 
 main() {
 	var systemObjects = collectSystemObjects();
-	systemObjects->getProjectionForObject();
-	//systemObjects.map transformForObject();
+	//systemObjects->getProjectionForObject();
+	
+	systemObjects->map transform();
 }
-
-//mapping Object::transformForObject() : Block {
-//	var projectionSet = self.getProjectionForObject();	
-//	projectionSet->print('  ');
-//}
 
 helper collectSystemObjects() : Set(Object){
 	var objects = scenario.objectsOfType(Scenario)->asOrderedSet().Communication->collect(Sender);
@@ -20,11 +16,18 @@ helper collectSystemObjects() : Set(Object){
 	return objects->asSet();
 }
 
+mapping Set(Object)::transform() : Behaviour {
+	self->forEach(o){
+		result.Block += o.getProjectionForObject();
+	}
+}
+
+
 mapping OrderedSet(Communication)::transformCommunicationSet(in o : Object) : Block {
 	// TODO do we need o? (somewhere we should store where the message is going, but we also need to store which object this block belongs to)
 
 	// copy pre state of incomming message
-	result.PreState := object BMO::State { Name := self->first().PreState.Name + ' ' + o.Name };
+	result.PreState := object BMO::State { Name := self->first().PreState.Name };
 	// copy operation
 	result.InMessage := object BMO::InMessage {  };
 	result.InMessage.Operation := object BMO::Operation { Name := self->first().Operation.Name };
@@ -47,7 +50,7 @@ mapping Communication::transformCommunication() : OutMessage {
 	result.ReturnValue := object BMO::Return { Name := self.Return.Name };
 }
 
-helper Object::getProjectionForObject() {
+helper Object::getProjectionForObject() : Sequence(Block) {
 	log('Projection for Object ' + self.Name);
 	// get all communications where self is either sender or receiver
 	var projectionSet = scenario.objectsOfType(Scenario)->asOrderedSet().Communication->select(c | c.Sender = self or c.Receiver = self);
@@ -55,7 +58,7 @@ helper Object::getProjectionForObject() {
 	var splittedProjections = projectionSet->asOrderedSet()->splitOnIncomingMessages(self);
 	splittedProjections.printOrderedSet('  ');
 	
-	splittedProjections.map transformCommunicationSet(self);
+	return splittedProjections.map transformCommunicationSet(self);
 }
 
 helper OrderedSet(Communication)::splitOnIncomingMessages(in o : Object) : OrderedSet(OrderedSet(Communication)) {
