@@ -1,0 +1,71 @@
+modeltype BMO uses 'http://www.studieren.se/behaviour_projection';
+modeltype IOM uses 'http://www.studieren.se/automaton_projection';
+
+transformation automatonProjection(in bmo : BMO, out iom : IOM);
+
+main() {
+	mergeLifelineBehaviours(bmo.objectsOfType(Behaviour))-> map mapBehaviour();
+}
+
+helper mergeLifelineBehaviours(inBehaviours : Set(Behaviour)) : Set(Behaviour){
+	var outBehaviours : Set(Behaviour);
+	
+	inBehaviours->forEach(behaviour) {
+		var existentBehaviour : Behaviour = findBehaviourOfLifeline(outBehaviours, behaviour.Lifeline.Name);
+		
+		if(existentBehaviour = null) {
+			// Behaviour doesn't exist yet; add
+			outBehaviours += behaviour;
+		} else {
+			// Behaviour already exists; merge
+			behaviour.Block->forEach(block) {
+				existentBehaviour.Block += block;
+			}
+		}
+	};
+	
+	return outBehaviours;
+}
+
+helper findBehaviourOfLifeline(behaviours : Set(Behaviour), lifelineName : String) : Behaviour {
+	behaviours->forEach(behaviour) {
+		if(behaviour.Lifeline.Name.=(lifelineName)) {
+			return behaviour;
+		}
+	};
+	
+	return null;
+}
+
+helper getStatesOfBehaviour(behaviour : Behaviour) : Set(IOAutomaton::State) {
+	var states : Set(IOAutomaton::State);
+	behaviour.Block->forEach(block) {
+		if(not containsStateWithName(states, block.PreState.Name)) {
+			states += block.PreState-> map mapState();
+		};
+	};
+	
+	return states;
+}
+
+helper containsStateWithName(states : Set(IOAutomaton::State), stateName : String) : Boolean {
+	states->forEach(state) {
+		if(state.Name.=(stateName)) {
+			return true;
+		}
+	};
+	
+	return false;
+}
+
+mapping BehaviourProjection::State::mapState() : IOAutomaton::State {
+	result.Name := self.Name;
+}
+
+
+mapping Behaviour::mapBehaviour() : Automaton {
+	log("Mapping Behaviour to Automaton " + self.Lifeline.Name);
+	
+	
+	result.Z := getStatesOfBehaviour(self);
+}
