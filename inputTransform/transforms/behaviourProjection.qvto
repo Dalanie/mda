@@ -7,7 +7,7 @@ main() {
 	var systemObjects = collectSystemObjects();
 	//systemObjects->getProjectionForObject();
 	
-	systemObjects->map transform();
+	systemObjects.map transform();
 }
 
 helper collectSystemObjects() : Set(Object){
@@ -16,16 +16,13 @@ helper collectSystemObjects() : Set(Object){
 	return objects->asSet();
 }
 
-mapping Set(Object)::transform() : Behaviour {
-	self->forEach(o){
-		result.Block += o.getProjectionForObject();
-	}
+mapping Object::transform() : Behaviour {
+	result.Lifeline := object BMO::Object { Name := self.Name; };
+	result.Block += self.getProjectionForObject();
 }
 
 
-mapping OrderedSet(Communication)::transformCommunicationSet(in o : Object) : Block {
-	// TODO do we need o? (somewhere we should store where the message is going, but we also need to store which object this block belongs to)
-
+mapping OrderedSet(Communication)::transformCommunicationSet() : Block {
 	// copy pre state of incomming message
 	result.PreState := object BMO::State { Name := self->first().PreState.Name };
 	// copy operation
@@ -58,7 +55,7 @@ helper Object::getProjectionForObject() : Sequence(Block) {
 	var splittedProjections = projectionSet->asOrderedSet()->splitOnIncomingMessages(self);
 	splittedProjections.printOrderedSet('  ');
 	
-	return splittedProjections.map transformCommunicationSet(self);
+	return splittedProjections.map transformCommunicationSet();
 }
 
 helper OrderedSet(Communication)::splitOnIncomingMessages(in o : Object) : OrderedSet(OrderedSet(Communication)) {
