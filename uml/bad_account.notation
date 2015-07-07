@@ -137,7 +137,7 @@
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aG7C9BtuEeWZtMGn2vX08Q"/>
       </children>
       <element xmi:type="uml:Interaction" href="bad_account.uml#_aGXCQBtuEeWZtMGn2vX08Q"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aG7C9RtuEeWZtMGn2vX08Q" x="-197" y="-351" height="1119"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_aG7C9RtuEeWZtMGn2vX08Q" x="-169" y="-327" height="1119"/>
     </children>
     <styles xmi:type="notation:StringValueStyle" xmi:id="_aG7C9htuEeWZtMGn2vX08Q" name="diagram_compatibility_version" stringValue="1.0.0"/>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_aG7C9xtuEeWZtMGn2vX08Q"/>
