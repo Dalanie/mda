@@ -3,7 +3,8 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="BehaviourProjection" nsURI="http://www.studieren.se/behaviour_projection"
     nsPrefix="behaviour">
   <eClassifiers xsi:type="ecore:EClass" name="Behaviour">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Block" upperBound="-1"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Block" upperBound="-1"
+        eType="#//Block" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
