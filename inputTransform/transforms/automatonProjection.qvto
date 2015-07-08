@@ -58,6 +58,58 @@ helper containsStateWithName(states : Set(IOAutomaton::State), stateName : Strin
 	return false;
 }
 
+helper containsInput(inputs : Set(IOAutomaton::Input), probeInput : IOAutomaton::Input) : Boolean {
+	inputs->forEach(input) {
+		if(input.=(probeInput)) {
+			return true;
+		}
+	};
+	
+	return false;
+}
+
+helper getInputsFromTransitions(transitions : Set(IOAutomaton::Transition)) : Set(IOAutomaton::Input) {
+	var inputs : Set(IOAutomaton::Input);
+	transitions->forEach(transition) {
+		if(not containsInput(inputs, transition.Input)) {
+			inputs += transition.Input;
+		}
+	};
+	return inputs;
+}
+
+helper containsOutput(outputs : Set(IOAutomaton::Output), probeOutput : IOAutomaton::Output) : Boolean {
+	outputs->forEach(output) {
+		if(output.=(probeOutput)) {
+			return true;
+		}
+	};
+	
+	return false;
+}
+
+helper getOutputsFromTransitions(transitions : Set(IOAutomaton::Transition)) : Set(IOAutomaton::Output) {
+	var outputs : Set(IOAutomaton::Output);
+	transitions->forEach(transition) {
+		transition.Activation.Output->forEach(output) {
+			if(not containsOutput(outputs, output)) {
+				outputs += output;
+			}
+		}
+	};
+	return outputs;
+}
+
+helper getAutomatonState(states : Set(IOAutomaton::State), inputState : BehaviourProjection::State) : IOAutomaton::State {
+	states->forEach(state) {
+		if(state.Name.=(inputState.Name)) {
+			return state;
+		}
+	};
+	
+	return inputState.map mapState();
+}
+
 mapping BehaviourProjection::State::mapState() : IOAutomaton::State {
 	result.Name := self.Name;
 }
@@ -69,6 +121,9 @@ mapping Behaviour::mapBehaviour() : Automaton {
 	
 	result.Z := getStatesOfBehaviour(self);
 	result.Delta := self.Block->map mapBlock();
+	result.In := getInputsFromTransitions(result.Delta);
+	result.Out := getOutputsFromTransitions(result.Delta);
+	result.Z0 := self.Block->at(1).PreState.map mapState();
 }
 
 mapping Block::mapBlock() : Transition {
