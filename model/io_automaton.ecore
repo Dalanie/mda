@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="IOAutomaton">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="IOAutomaton" nsURI="http://www.studieren.se/automaton_projection"
+    nsPrefix="automaton">
   <eClassifiers xsi:type="ecore:EClass" name="Automaton">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Z" ordered="false" upperBound="-1"
         eType="#//State"/>
