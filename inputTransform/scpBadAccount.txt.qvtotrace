@@ -467,7 +467,7 @@
     <context>
       <context name="self" type="MessageOccurrenceSpecification">
         <value>
-          <modelElement href="../uml/uml/alles.uml#_DKRW0CV7EeW_KLKF3VxJng"/>
+          <modelElement href="../uml/uml/alles.uml#_mJbAUCWGEeWjpKQ7ZQTliQ"/>
         </value>
       </context>
     </context>
@@ -487,7 +487,7 @@
     <context>
       <context name="self" type="Message">
         <value>
-          <modelElement href="../uml/uml/alles.uml#_DKPhoCV7EeW_KLKF3VxJng"/>
+          <modelElement href="../uml/uml/alles.uml#_mJYkECWGEeWjpKQ7ZQTliQ"/>
         </value>
       </context>
     </context>
@@ -507,7 +507,7 @@
     <context>
       <context name="self" type="MessageOccurrenceSpecification">
         <value>
-          <modelElement href="../uml/uml/alles.uml#_L1mksSV6EeW_KLKF3VxJng"/>
+          <modelElement href="../uml/uml/alles.uml#_DKRW0CV7EeW_KLKF3VxJng"/>
         </value>
       </context>
     </context>
@@ -527,7 +527,7 @@
     <context>
       <context name="self" type="Message">
         <value>
-          <modelElement href="../uml/uml/alles.uml#_L1lWkCV6EeW_KLKF3VxJng"/>
+          <modelElement href="../uml/uml/alles.uml#_DKPhoCV7EeW_KLKF3VxJng"/>
         </value>
       </context>
     </context>
@@ -536,6 +536,46 @@
       <result kind="OUT" name="result" type="Operation">
         <value>
           <modelElement href="scpBadAccount.txt#/22"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/alles.uml#_L1mksSV6EeW_KLKF3VxJng"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/0/@Communication.10"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/alles.uml#_L1lWkCV6EeW_KLKF3VxJng"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/23"/>
         </value>
       </result>
     </result>
@@ -555,7 +595,7 @@
     <result>
       <result kind="OUT" name="result" type="Scenario">
         <value>
-          <modelElement href="scpBadAccount.txt#/23"/>
+          <modelElement href="scpBadAccount.txt#/24"/>
         </value>
       </result>
     </result>
@@ -575,7 +615,7 @@
     <result>
       <result kind="OUT" name="result" type="Communication">
         <value>
-          <modelElement href="scpBadAccount.txt#/23/@Communication.0"/>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.0"/>
         </value>
       </result>
     </result>
@@ -595,7 +635,7 @@
     <result>
       <result kind="OUT" name="result" type="Operation">
         <value>
-          <modelElement href="scpBadAccount.txt#/24"/>
+          <modelElement href="scpBadAccount.txt#/25"/>
         </value>
       </result>
     </result>
@@ -615,7 +655,7 @@
     <result>
       <result kind="OUT" name="result" type="Communication">
         <value>
-          <modelElement href="scpBadAccount.txt#/23/@Communication.1"/>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.1"/>
         </value>
       </result>
     </result>
@@ -635,7 +675,7 @@
     <result>
       <result kind="OUT" name="result" type="Operation">
         <value>
-          <modelElement href="scpBadAccount.txt#/25"/>
+          <modelElement href="scpBadAccount.txt#/26"/>
         </value>
       </result>
     </result>
@@ -655,7 +695,7 @@
     <result>
       <result kind="OUT" name="result" type="Communication">
         <value>
-          <modelElement href="scpBadAccount.txt#/23/@Communication.2"/>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.2"/>
         </value>
       </result>
     </result>
@@ -675,7 +715,7 @@
     <result>
       <result kind="OUT" name="result" type="Operation">
         <value>
-          <modelElement href="scpBadAccount.txt#/26"/>
+          <modelElement href="scpBadAccount.txt#/27"/>
         </value>
       </result>
     </result>
@@ -695,7 +735,7 @@
     <result>
       <result kind="OUT" name="result" type="Communication">
         <value>
-          <modelElement href="scpBadAccount.txt#/23/@Communication.3"/>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.3"/>
         </value>
       </result>
     </result>
@@ -715,7 +755,7 @@
     <result>
       <result kind="OUT" name="result" type="Operation">
         <value>
-          <modelElement href="scpBadAccount.txt#/27"/>
+          <modelElement href="scpBadAccount.txt#/28"/>
         </value>
       </result>
     </result>
@@ -735,7 +775,7 @@
     <result>
       <result kind="OUT" name="result" type="Return">
         <value>
-          <modelElement href="scpBadAccount.txt#/28"/>
+          <modelElement href="scpBadAccount.txt#/29"/>
         </value>
       </result>
     </result>
@@ -755,7 +795,7 @@
     <result>
       <result kind="OUT" name="result" type="Communication">
         <value>
-          <modelElement href="scpBadAccount.txt#/23/@Communication.4"/>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.4"/>
         </value>
       </result>
     </result>
@@ -775,7 +815,7 @@
     <result>
       <result kind="OUT" name="result" type="Operation">
         <value>
-          <modelElement href="scpBadAccount.txt#/29"/>
+          <modelElement href="scpBadAccount.txt#/30"/>
         </value>
       </result>
     </result>
@@ -795,7 +835,7 @@
     <result>
       <result kind="OUT" name="result" type="Return">
         <value>
-          <modelElement href="scpBadAccount.txt#/30"/>
+          <modelElement href="scpBadAccount.txt#/31"/>
         </value>
       </result>
     </result>
@@ -815,7 +855,7 @@
     <result>
       <result kind="OUT" name="result" type="Communication">
         <value>
-          <modelElement href="scpBadAccount.txt#/23/@Communication.5"/>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.5"/>
         </value>
       </result>
     </result>
@@ -835,7 +875,7 @@
     <result>
       <result kind="OUT" name="result" type="Operation">
         <value>
-          <modelElement href="scpBadAccount.txt#/31"/>
+          <modelElement href="scpBadAccount.txt#/32"/>
         </value>
       </result>
     </result>
@@ -855,7 +895,7 @@
     <result>
       <result kind="OUT" name="result" type="Communication">
         <value>
-          <modelElement href="scpBadAccount.txt#/23/@Communication.6"/>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.6"/>
         </value>
       </result>
     </result>
@@ -875,7 +915,7 @@
     <result>
       <result kind="OUT" name="result" type="Operation">
         <value>
-          <modelElement href="scpBadAccount.txt#/32"/>
+          <modelElement href="scpBadAccount.txt#/33"/>
         </value>
       </result>
     </result>
@@ -895,7 +935,7 @@
     <result>
       <result kind="OUT" name="result" type="Communication">
         <value>
-          <modelElement href="scpBadAccount.txt#/23/@Communication.7"/>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.7"/>
         </value>
       </result>
     </result>
@@ -915,7 +955,7 @@
     <result>
       <result kind="OUT" name="result" type="Operation">
         <value>
-          <modelElement href="scpBadAccount.txt#/33"/>
+          <modelElement href="scpBadAccount.txt#/34"/>
         </value>
       </result>
     </result>
@@ -935,7 +975,7 @@
     <result>
       <result kind="OUT" name="result" type="Communication">
         <value>
-          <modelElement href="scpBadAccount.txt#/23/@Communication.8"/>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.8"/>
         </value>
       </result>
     </result>
@@ -955,7 +995,7 @@
     <result>
       <result kind="OUT" name="result" type="Operation">
         <value>
-          <modelElement href="scpBadAccount.txt#/34"/>
+          <modelElement href="scpBadAccount.txt#/35"/>
         </value>
       </result>
     </result>
@@ -975,7 +1015,7 @@
     <result>
       <result kind="OUT" name="result" type="Communication">
         <value>
-          <modelElement href="scpBadAccount.txt#/23/@Communication.9"/>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.9"/>
         </value>
       </result>
     </result>
@@ -995,7 +1035,7 @@
     <result>
       <result kind="OUT" name="result" type="Operation">
         <value>
-          <modelElement href="scpBadAccount.txt#/35"/>
+          <modelElement href="scpBadAccount.txt#/36"/>
         </value>
       </result>
     </result>
@@ -1015,7 +1055,7 @@
     <result>
       <result kind="OUT" name="result" type="Communication">
         <value>
-          <modelElement href="scpBadAccount.txt#/23/@Communication.10"/>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.10"/>
         </value>
       </result>
     </result>
@@ -1035,7 +1075,7 @@
     <result>
       <result kind="OUT" name="result" type="Operation">
         <value>
-          <modelElement href="scpBadAccount.txt#/36"/>
+          <modelElement href="scpBadAccount.txt#/37"/>
         </value>
       </result>
     </result>
@@ -1055,7 +1095,7 @@
     <result>
       <result kind="OUT" name="result" type="Communication">
         <value>
-          <modelElement href="scpBadAccount.txt#/23/@Communication.11"/>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.11"/>
         </value>
       </result>
     </result>
@@ -1075,7 +1115,7 @@
     <result>
       <result kind="OUT" name="result" type="Operation">
         <value>
-          <modelElement href="scpBadAccount.txt#/37"/>
+          <modelElement href="scpBadAccount.txt#/38"/>
         </value>
       </result>
     </result>

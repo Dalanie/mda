@@ -9,8 +9,9 @@
     <Communication Sender="/1" Operation="/18" Receiver="/2" Return="/4"/>
     <Communication Sender="/1" Operation="/19" Receiver="/2" Return="/4"/>
     <Communication Sender="/1" Operation="/20" Receiver="/2" Return="/4"/>
-    <Communication PreState="/9" Sender="/2" Operation="/21" Receiver="/1" Return="/4" PostState="/5"/>
-    <Communication Sender="/1" Operation="/22" Receiver="/2" Return="/4"/>
+    <Communication Sender="/1" Operation="/21" Receiver="/2" Return="/4"/>
+    <Communication PreState="/9" Sender="/2" Operation="/22" Receiver="/1" Return="/4" PostState="/5"/>
+    <Communication Sender="/1" Operation="/23" Receiver="/2" Return="/4"/>
   </scenario:Scenario>
   <scenario:Object Name="atm"/>
   <scenario:Object Name="user"/>
@@ -32,21 +33,22 @@
   <scenario:Operation Name="badAccountMessage"/>
   <scenario:Operation Name="printReceipt"/>
   <scenario:Operation Name="ejectCard"/>
+  <scenario:Operation Name="requestTakeCard"/>
   <scenario:Operation Name="takeCard"/>
   <scenario:Operation Name="displayMainScreen"/>
   <scenario:Scenario>
-    <Communication PreState="/5" Sender="/2" Operation="/24" Receiver="/1" Return="/4" PostState="/6"/>
-    <Communication Sender="/1" Operation="/25" Receiver="/2" Return="/4"/>
-    <Communication PreState="/6" Sender="/2" Operation="/26" Receiver="/1" Return="/4" PostState="/6"/>
-    <Communication PreState="/13" Sender="/1" Operation="/27" Receiver="/10" Return="/28" PostState="/13"/>
-    <Communication PreState="/17" Sender="/10" Operation="/29" Receiver="/14" Return="/30" PostState="/17"/>
-    <Communication Sender="/1" Operation="/31" Receiver="/2" Return="/4"/>
-    <Communication PreState="/6" Sender="/2" Operation="/32" Receiver="/1" Return="/4" PostState="/9"/>
-    <Communication Sender="/1" Operation="/33" Receiver="/2" Return="/4"/>
+    <Communication PreState="/5" Sender="/2" Operation="/25" Receiver="/1" Return="/4" PostState="/6"/>
+    <Communication Sender="/1" Operation="/26" Receiver="/2" Return="/4"/>
+    <Communication PreState="/6" Sender="/2" Operation="/27" Receiver="/1" Return="/4" PostState="/6"/>
+    <Communication PreState="/13" Sender="/1" Operation="/28" Receiver="/10" Return="/29" PostState="/13"/>
+    <Communication PreState="/17" Sender="/10" Operation="/30" Receiver="/14" Return="/31" PostState="/17"/>
+    <Communication Sender="/1" Operation="/32" Receiver="/2" Return="/4"/>
+    <Communication PreState="/6" Sender="/2" Operation="/33" Receiver="/1" Return="/4" PostState="/9"/>
     <Communication Sender="/1" Operation="/34" Receiver="/2" Return="/4"/>
     <Communication Sender="/1" Operation="/35" Receiver="/2" Return="/4"/>
-    <Communication PreState="/9" Sender="/2" Operation="/36" Receiver="/1" Return="/4" PostState="/5"/>
-    <Communication Sender="/1" Operation="/37" Receiver="/2" Return="/4"/>
+    <Communication Sender="/1" Operation="/36" Receiver="/2" Return="/4"/>
+    <Communication PreState="/9" Sender="/2" Operation="/37" Receiver="/1" Return="/4" PostState="/5"/>
+    <Communication Sender="/1" Operation="/38" Receiver="/2" Return="/4"/>
   </scenario:Scenario>
   <scenario:Operation Name="insertCard"/>
   <scenario:Operation Name="requestPassword"/>
