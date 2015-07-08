@@ -1,0 +1,1203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:Trace xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:trace="http:///www.eclipse.org/m2m/qvt/operational/trace.ecore">
+  <traceRecords>
+    <mappingOperation name="mapInteraction" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapInteraction"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Interaction">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_f7NOACTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Scenario">
+        <value>
+          <modelElement href="scpBadAccount.txt#/0"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_I456kCTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/0/@Communication.0"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReceiverOrSender" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReceiverOrSender"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_sih64CTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Object">
+        <value>
+          <modelElement href="scpBadAccount.txt#/1"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReceiverOrSender" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReceiverOrSender"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_ru--ECTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Object">
+        <value>
+          <modelElement href="scpBadAccount.txt#/2"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_I43eUCTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/3"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_RkZEACTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/0/@Communication.1"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_RkWAsCTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/7"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_U959gCTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/0/@Communication.2"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_U926MCTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/8"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_5Av5oCTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/0/@Communication.3"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_4Pc_kCTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/9"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_KRpPICTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/0/@Communication.4"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_KRmy4CTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/11"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_Ln5QYCTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/0/@Communication.5"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_Ln20ICTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/12"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_M2sl0CTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/0/@Communication.6"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReceiverOrSender" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReceiverOrSender"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_tSjCkCTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Object">
+        <value>
+          <modelElement href="scpBadAccount.txt#/13"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_M2qJkCTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/14"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReturn" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReturn"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_Qf0BkCTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Return">
+        <value>
+          <modelElement href="scpBadAccount.txt#/15"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_N8AoECTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/0/@Communication.7"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReceiverOrSender" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReceiverOrSender"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_uW6CkCTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Object">
+        <value>
+          <modelElement href="scpBadAccount.txt#/17"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_N7-L0CTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/18"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReturn" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReturn"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_Pa5n8CTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Return">
+        <value>
+          <modelElement href="scpBadAccount.txt#/19"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_SseGYCTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/0/@Communication.8"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_SsbqICTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/21"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_UA8mACTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/0/@Communication.9"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_UA5isCTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/22"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_ZvQMoCTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/0/@Communication.10"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_ZvGboCTsEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/23"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapInteraction" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapInteraction"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Interaction">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_NOGWACToEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Scenario">
+        <value>
+          <modelElement href="scpBadAccount.txt#/24"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_HDsXUCTqEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.0"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReceiverOrSender" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReceiverOrSender"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_pTNxICTpEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Object">
+        <value>
+          <modelElement href="scpBadAccount.txt#/25"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReceiverOrSender" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReceiverOrSender"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_octm8CTpEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Object">
+        <value>
+          <modelElement href="scpBadAccount.txt#/26"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_HDpUACTqEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/27"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_UjuN0CTqEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.1"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_UjrKgCTqEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/29"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_vN2HECTqEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.2"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReceiverOrSender" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReceiverOrSender"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_qaKLECTpEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Object">
+        <value>
+          <modelElement href="scpBadAccount.txt#/30"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_vNzDwCTqEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/31"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReturn" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReturn"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_3av3ECTqEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Return">
+        <value>
+          <modelElement href="scpBadAccount.txt#/32"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_0RuQoCTqEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.3"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReceiverOrSender" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReceiverOrSender"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Lifeline">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_sF6iQCTpEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Object">
+        <value>
+          <modelElement href="scpBadAccount.txt#/33"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_0RrNUCTqEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/34"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapReturn" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapReturn"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_2Mq6YCTqEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Return">
+        <value>
+          <modelElement href="scpBadAccount.txt#/35"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_YSoIgCTqEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.4"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_YSmTUCTqEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/36"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_lyhcICTqEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.5"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_lyeY0CTqEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/37"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_DPtS4CTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.6"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_DPq2oCTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/38"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_ELx5kCTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.7"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_ELwEYCTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/39"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_FV7_kCTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.8"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_FV48QCTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/40"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_G-q38CTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.9"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_G-n0oCTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/41"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_INTOQCTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.10"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_INMgkCTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/42"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapCommunication" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapCommunication"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="MessageOccurrenceSpecification">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_J_tnECTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Communication">
+        <value>
+          <modelElement href="scpBadAccount.txt#/24/@Communication.11"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+  <traceRecords>
+    <mappingOperation name="mapOperation" package="scenarioProjection" module="scenarioProjection">
+      <runtimeMappingOperation href="qvto:/module.env#//mapOperation"/>
+    </mappingOperation>
+    <context>
+      <context name="self" type="Message">
+        <value>
+          <modelElement href="../uml/uml/bad_acc_pw.uml#_J_oHgCTrEeWDJbNBKYE95g"/>
+        </value>
+      </context>
+    </context>
+    <parameters/>
+    <result>
+      <result kind="OUT" name="result" type="Operation">
+        <value>
+          <modelElement href="scpBadAccount.txt#/43"/>
+        </value>
+      </result>
+    </result>
+  </traceRecords>
+</trace:Trace>

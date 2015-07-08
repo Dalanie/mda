@@ -4,11 +4,16 @@ modeltype IMD uses 'http://www.studieren.se/scenario_projection';
 transformation scenarioProjection(in seq : UML, out scp : IMD);
 
 main() {
-	seq.objectsOfType(Interaction).map mapInteraction();
-	
+
+	var interactions = seq.objectsOfType(Interaction);
+
+	interactions.map mapInteraction();
 }
 
 mapping Interaction::mapInteraction() : Scenario {
+
+
+	log('Scenario: ' + self.name);
 
    -- Sammle alle MessageOccurrences,
    -- bei denen es sich NICHT um Antwortnachrichten handelt.
@@ -22,14 +27,20 @@ mapping Interaction::mapInteraction() : Scenario {
 	                 mo.message.receiveEvent = mo
 	             and mo.message.messageSort <> MessageSort::reply);
 	             
+	var someMSG = self.fragment[MessageOccurrenceSpecification];
+	var someFMSG = someMSG->select(mo | mo.message.receiveEvent.oclIsKindOf(MessageOccurrenceSpecification));
+	var someFFMSG = someFMSG->select(mo | mo.message.receiveEvent = mo);
+	             
 	             
 	-- Für jede empfangene Nachricht gibt es einen solchen Eintrag.
-	result.Communication += receivedMessages.map mapCommunication();
+	result.Communication += someMSG.map mapCommunication();
 }
 
 
 
-mapping MessageOccurrenceSpecification::mapCommunication() : Communication {
+mapping MessageOccurrenceSpecification::mapCommunication() : Communication 
+    when {     self.message.receiveEvent = self
+           and self.message.messageSort <> MessageSort::reply } {
 	
 	-- Setze den Empfänger.
 	result.Receiver := self.covered->asOrderedSet()->first().map mapReceiverOrSender();
@@ -52,7 +63,7 @@ mapping MessageOccurrenceSpecification::mapCommunication() : Communication {
 		            mo.message.messageSort = MessageSort::reply
 		        and not mo.message.sendEvent.oclAsType(MessageOccurrenceSpecification).covered->intersection(self.covered)->isEmpty());
 		        
-	if (results->isEmpty()) {
+	if (results->oclIsInvalid() or results->isEmpty()) {
 		-- Rückgabetyp ist nur ein Void.
 		result.Return := createVoid();
 	} else {
@@ -101,11 +112,11 @@ mapping MessageOccurrenceSpecification::mapCommunication() : Communication {
 		postStateName := '      -      ';
 	};
 
-	log (preStateName + '|' + 
-	     result.Sender.Name   + ' | ' +
-	     result.Operation.Name + ' | ' + 
-	     result.Receiver.Name  + ' | ' + 
-	     result.Return.Name    + ' | ' + 
+	log (preStateName + ';' + 
+	     result.Sender.Name   + ' ; ' +
+	     result.Operation.Name + ' ; ' + 
+	     result.Receiver.Name  + ' ; ' + 
+	     result.Return.Name    + ' ; ' + 
 	     postStateName);
 }
 
