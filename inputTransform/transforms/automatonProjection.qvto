@@ -68,4 +68,35 @@ mapping Behaviour::mapBehaviour() : Automaton {
 	
 	
 	result.Z := getStatesOfBehaviour(self);
+	result.Delta := self.Block->map mapBlock();
+}
+
+mapping Block::mapBlock() : Transition {
+	result.PreState := self.PreState.map mapState();
+	result.PostState := self.PostState.map mapState();
+	result.Input := self.InMessage.map mapInMessage();
+	result.Activation := self.Activation.map mapActivation();
+}
+
+mapping BehaviourProjection::InMessage::mapInMessage() : IOAutomaton::Input {
+	result.Operation := self.Operation.map mapOperation();
+}
+
+mapping BehaviourProjection::Operation::mapOperation() : IOAutomaton::Operation {
+	result.Name := self.Name;
+}
+
+mapping BehaviourProjection::Activation::mapActivation() : IOAutomaton::Activation {
+	result.Output := self.OutMessage->map mapOutMessage();
+	result.Return := self.ReturnValue.map mapReturn();
+}
+
+mapping BehaviourProjection::OutMessage::mapOutMessage() : IOAutomaton::Output {
+	result.Operation := self.Operation.map mapOperation();
+	result.Return := self.ReturnValue.map mapReturn();
+}
+
+mapping BehaviourProjection::Return::mapReturn() : IOAutomaton::ReturnValue {
+	result.Name := self.Name;
+	result.IsVoid := self.IsVoid;
 }
