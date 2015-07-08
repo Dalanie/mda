@@ -11,18 +11,26 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Block">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="PreState" eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="InMessage" eType="#//InMessage"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Activation" eType="#//Activation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="PostState" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PreState" eType="#//State"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="InMessage" eType="#//InMessage"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Activation" eType="#//Activation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="PostState" eType="#//State"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="InMessage">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Operation" eType="#//Operation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Operation" eType="#//Operation"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OutMessage">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Operation" eType="#//Operation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Object" eType="#//Object"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ReturnValue" eType="#//Return"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Operation" eType="#//Operation"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Object" eType="#//Object"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ReturnValue" eType="#//Return"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -36,8 +44,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Activation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="OutMessage" upperBound="-1"
-        eType="#//OutMessage"/>
+        eType="#//OutMessage" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ReturnValue" lowerBound="1"
-        eType="#//Return"/>
+        eType="#//Return" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

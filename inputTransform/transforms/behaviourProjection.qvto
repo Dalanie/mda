@@ -13,6 +13,8 @@ main() {
 helper collectSystemObjects() : Set(Object){
 	var objects = scenario.objectsOfType(Scenario)->asOrderedSet().Communication->collect(Sender);
 	objects += scenario.objectsOfType(Scenario)->asOrderedSet().Communication->collect(Receiver);
+	objects := objects->select(c | c <> null );
+	objects := objects->select(c | c.Name <> "user");
 	return objects->asSet();
 }
 
