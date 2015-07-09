@@ -94,7 +94,7 @@ helper containsOutput(outputs : Set(IOAutomaton::Output), probeOutput : IOAutoma
 	return false;
 }
 
-helper getOutputsFromTransitions(transitions : Set(IOAutomaton::Transition)) : Set(IOAutomaton::Output) {
+/*helper getOutputsFromTransitions(transitions : Set(IOAutomaton::Transition)) : Set(IOAutomaton::Output) {
 	var outputs : Set(IOAutomaton::Output);
 	transitions->forEach(transition) {
 		transition.Activation.Output->forEach(output) {
@@ -104,7 +104,7 @@ helper getOutputsFromTransitions(transitions : Set(IOAutomaton::Transition)) : S
 		}
 	};
 	return outputs;
-}
+}*/
 
 helper getAutomatonState(states : Set(IOAutomaton::State), inputState : BehaviourProjection::State) : IOAutomaton::State {
 	states->forEach(state) {
@@ -129,15 +129,16 @@ mapping Behaviour::mapBehaviour() : Automaton {
 	result.Z := getStatesOfBehaviour(self);
 	//result.In := getInputsFromTransitions(result.Delta);
 	result.In := self.Block.InMessage.map mapInMessage();
-	result.Delta := self.Block->map mapBlock(result.Z);
-	result.Out := getOutputsFromTransitions(result.Delta);
+	result.Delta := self.Block->map mapBlock(result);
+	result.Out := self.Block.Activation.map mapActivation();
 	result.Z0 := self.Block->at(1).PreState.map mapState();
 }
 
-mapping Block::mapBlock(states : Set(IOAutomaton::State)) : Transition {
-	result.PreState := getAutomatonState(states, self.PreState);
-	result.PostState := getAutomatonState(states, self.PostState);
-	//result.Input := self.InMessage.map mapInMessage();
+mapping Block::mapBlock(automaton : IOAutomaton::Automaton) : Transition {
+	result.PreState := getAutomatonState(automaton.Z, self.PreState);
+	result.PostState := getAutomatonState(automaton.Z, self.PostState);
+	result.Input := automaton.In->select(e | e.Operation.Name = self.InMessage.Operation.Name)->asSequence()->at(1);
+		//.deepclone().oclAsType(IOAutomaton::Input);
 	result.Activation := self.Activation.map mapActivation();
 }
 
@@ -147,6 +148,7 @@ when { not inputsAlreadyInserted->includes(self.Operation.Name)
 }{
 	inputsAlreadyInserted := inputsAlreadyInserted->including(self.Operation.Name);
 	result.Operation := self.Operation.map mapOperation();
+	result.Name := result.Operation.Name;
 }
 
 mapping BehaviourProjection::Operation::mapOperation() : IOAutomaton::Operation {
@@ -160,9 +162,13 @@ mapping BehaviourProjection::Activation::mapActivation() : IOAutomaton::Activati
 
 mapping BehaviourProjection::OutMessage::mapOutMessage() : IOAutomaton::Output {
 	result.Operation := self.Operation.map mapOperation();
+	result.Name := result.Operation.Name;
+	result.Object := self.Object.map mapObject();
 	result.Return := self.ReturnValue.map mapReturn();
 }
-
+mapping BehaviourProjection::Object::mapObject() : IOAutomaton::Object {
+	result.Name := self.Name;	
+}
 mapping BehaviourProjection::Return::mapReturn() : IOAutomaton::ReturnValue {
 	result.Name := self.Name;
 	result.IsVoid := self.IsVoid;

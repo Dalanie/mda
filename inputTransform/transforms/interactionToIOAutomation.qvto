@@ -9,7 +9,7 @@ modeltype IOM uses 'http://www.studieren.se/automaton_projection';
 	
 	
 
-transformation interactionToIOAutomation(in seq : UML, out iom : IOM)
+transformation interactionToIOAutomation(in seq : UML, out bmo : BMO, out iom : IOM)
 	access transformation
 	scenarioProjection(in UML, out IMD),
 	behaviourProjection(in IMD, out BMO),
@@ -17,7 +17,7 @@ transformation interactionToIOAutomation(in seq : UML, out iom : IOM)
 
 main() {
 	var imd : IMD := IMD.createEmptyModel().oclAsType(IMD);
-	var bmo : BMO := BMO.createEmptyModel().oclAsType(BMO);
+	//var bmo : BMO := BMO.createEmptyModel().oclAsType(BMO);
 	
 	var seq2imd := new scenarioProjection(seq, imd);
 	var imd2bmo := new behaviourProjection(imd, bmo);
