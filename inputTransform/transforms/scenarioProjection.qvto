@@ -12,24 +12,9 @@ main() {
 
 mapping Interaction::mapInteraction() : Scenario {
 
-
 	log('Scenario: ' + self.name);
 
-   -- Sammle alle MessageOccurrences,
-   -- bei denen es sich NICHT um Antwortnachrichten handelt.
-   var receivedMessages = 
-	   self.fragment
-	       ->select(f |
-	               f.oclIsKindOf(MessageOccurrenceSpecification))
-	       ->collect(f |
-	               f.oclAsType(MessageOccurrenceSpecification))
-	       ->select(mo |
-	                 mo.message.receiveEvent = mo
-	             and mo.message.messageSort <> MessageSort::reply);
-	             
 	var someMSG = self.fragment[MessageOccurrenceSpecification];
-	var someFMSG = someMSG->select(mo | mo.message.receiveEvent.oclIsKindOf(MessageOccurrenceSpecification));
-	var someFFMSG = someFMSG->select(mo | mo.message.receiveEvent = mo);
 	             
 	             
 	-- Für jede empfangene Nachricht gibt es einen solchen Eintrag.
@@ -93,8 +78,6 @@ mapping MessageOccurrenceSpecification::mapCommunication() : Communication
 		                ->asOrderedSet()->first().oclAsType(Constraint)
 		                .constrainedElement->last() = self.message);
 		                
-	var allStates = seq.objectsOfType(StateInvariant);
-		               
 	var preStateName : String,
 	    postStateName : String;               
 		                
