@@ -43,6 +43,9 @@ helper getStatesOfBehaviour(behaviour : Behaviour) : Set(IOAutomaton::State) {
 		if(not containsStateWithName(states, block.PreState.Name)) {
 			states += block.PreState-> map mapState();
 		};
+		if(not containsStateWithName(states, block.PostState.Name)) {
+			states += block.PostState-> map mapState();
+		};
 	};
 	
 	return states;
@@ -107,7 +110,7 @@ helper getAutomatonState(states : Set(IOAutomaton::State), inputState : Behaviou
 		}
 	};
 	
-	return inputState.map mapState();
+	return null;
 }
 
 mapping BehaviourProjection::State::mapState() : IOAutomaton::State {
@@ -118,17 +121,18 @@ mapping BehaviourProjection::State::mapState() : IOAutomaton::State {
 mapping Behaviour::mapBehaviour() : Automaton {
 	log("Mapping Behaviour to Automaton " + self.Lifeline.Name);
 	
+	result.Name := self.Lifeline.Name;
 	
 	result.Z := getStatesOfBehaviour(self);
-	result.Delta := self.Block->map mapBlock();
+	result.Delta := self.Block->map mapBlock(result.Z);
 	result.In := getInputsFromTransitions(result.Delta);
 	result.Out := getOutputsFromTransitions(result.Delta);
 	result.Z0 := self.Block->at(1).PreState.map mapState();
 }
 
-mapping Block::mapBlock() : Transition {
-	result.PreState := self.PreState.map mapState();
-	result.PostState := self.PostState.map mapState();
+mapping Block::mapBlock(states : Set(IOAutomaton::State)) : Transition {
+	result.PreState := getAutomatonState(states, self.PreState);
+	result.PostState := getAutomatonState(states, self.PostState);
 	result.Input := self.InMessage.map mapInMessage();
 	result.Activation := self.Activation.map mapActivation();
 }
