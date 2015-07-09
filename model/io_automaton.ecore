@@ -8,7 +8,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="In" ordered="false" upperBound="-1"
         eType="#//Input" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Out" ordered="false" upperBound="-1"
-        eType="#//Output"/>
+        eType="#//Output" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Delta" ordered="false"
         upperBound="-1" eType="#//Transition" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Z0" lowerBound="1" eType="#//State"/>
@@ -22,8 +22,7 @@
         eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PostState" lowerBound="1"
         eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Input" lowerBound="1" eType="#//Input"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Input" lowerBound="1" eType="#//Input"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Activation" lowerBound="1"
         eType="#//Activation" containment="true"/>
   </eClassifiers>

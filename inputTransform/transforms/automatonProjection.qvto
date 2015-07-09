@@ -3,6 +3,9 @@ modeltype IOM uses 'http://www.studieren.se/automaton_projection';
 
 transformation automatonProjection(in bmo : BMO, out iom : IOM);
 
+property inputsAlreadyInserted : Set(String);
+
+	
 main() {
 	mergeLifelineBehaviours(bmo.objectsOfType(Behaviour))-> map mapBehaviour();
 }
@@ -63,7 +66,7 @@ helper containsStateWithName(states : Set(IOAutomaton::State), stateName : Strin
 
 helper containsInput(inputs : Set(IOAutomaton::Input), probeInput : IOAutomaton::Input) : Boolean {
 	inputs->forEach(input) {
-		if(input.Operation.Name.=(probeInput.Operation.Name)) {
+		if(input.Operation.Name = (probeInput.Operation.Name)) {
 			return true;
 		}
 	};
@@ -112,16 +115,6 @@ helper getAutomatonState(states : Set(IOAutomaton::State), inputState : Behaviou
 	
 	return null;
 }
-/*
-helper getAutomatonInput(inputs : Set(IOAutomaton::Input), inMessage : BehaviourProjection::InMessage) : IOAutomaton::State {
-	states->forEach(state) {
-		if(state.Name.=(inputState.Name)) {
-			return state;
-		}
-	};
-	
-	return null;
-}*/
 
 mapping BehaviourProjection::State::mapState() : IOAutomaton::State {
 	result.Name := self.Name;
@@ -134,8 +127,9 @@ mapping Behaviour::mapBehaviour() : Automaton {
 	result.Name := self.Lifeline.Name;
 	
 	result.Z := getStatesOfBehaviour(self);
+	//result.In := getInputsFromTransitions(result.Delta);
+	result.In := self.Block.InMessage.map mapInMessage();
 	result.Delta := self.Block->map mapBlock(result.Z);
-	result.In := getInputsFromTransitions(result.Delta);
 	result.Out := getOutputsFromTransitions(result.Delta);
 	result.Z0 := self.Block->at(1).PreState.map mapState();
 }
@@ -143,11 +137,15 @@ mapping Behaviour::mapBehaviour() : Automaton {
 mapping Block::mapBlock(states : Set(IOAutomaton::State)) : Transition {
 	result.PreState := getAutomatonState(states, self.PreState);
 	result.PostState := getAutomatonState(states, self.PostState);
-	result.Input := self.InMessage.map mapInMessage();
+	//result.Input := self.InMessage.map mapInMessage();
 	result.Activation := self.Activation.map mapActivation();
 }
 
-mapping BehaviourProjection::InMessage::mapInMessage() : IOAutomaton::Input {
+mapping BehaviourProjection::InMessage::mapInMessage() : IOAutomaton::Input
+
+when { not inputsAlreadyInserted->includes(self.Operation.Name) 
+}{
+	inputsAlreadyInserted := inputsAlreadyInserted->including(self.Operation.Name);
 	result.Operation := self.Operation.map mapOperation();
 }
 
