@@ -4,7 +4,7 @@
     nsPrefix="automaton">
   <eClassifiers xsi:type="ecore:EClass" name="Automaton">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Z" ordered="false" upperBound="-1"
-        eType="#//State" containment="true"/>
+        eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="In" ordered="false" upperBound="-1"
         eType="#//Input" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Out" ordered="false" upperBound="-1"
