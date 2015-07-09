@@ -63,7 +63,7 @@ helper containsStateWithName(states : Set(IOAutomaton::State), stateName : Strin
 
 helper containsInput(inputs : Set(IOAutomaton::Input), probeInput : IOAutomaton::Input) : Boolean {
 	inputs->forEach(input) {
-		if(input.=(probeInput)) {
+		if(input.Operation.Name.=(probeInput.Operation.Name)) {
 			return true;
 		}
 	};
@@ -83,7 +83,7 @@ helper getInputsFromTransitions(transitions : Set(IOAutomaton::Transition)) : Se
 
 helper containsOutput(outputs : Set(IOAutomaton::Output), probeOutput : IOAutomaton::Output) : Boolean {
 	outputs->forEach(output) {
-		if(output.=(probeOutput)) {
+		if(output.Operation.Name.=(probeOutput.Operation.Name)) {
 			return true;
 		}
 	};
@@ -112,6 +112,16 @@ helper getAutomatonState(states : Set(IOAutomaton::State), inputState : Behaviou
 	
 	return null;
 }
+/*
+helper getAutomatonInput(inputs : Set(IOAutomaton::Input), inMessage : BehaviourProjection::InMessage) : IOAutomaton::State {
+	states->forEach(state) {
+		if(state.Name.=(inputState.Name)) {
+			return state;
+		}
+	};
+	
+	return null;
+}*/
 
 mapping BehaviourProjection::State::mapState() : IOAutomaton::State {
 	result.Name := self.Name;
