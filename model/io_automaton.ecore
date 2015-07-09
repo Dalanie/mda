@@ -4,24 +4,24 @@
     nsPrefix="automaton">
   <eClassifiers xsi:type="ecore:EClass" name="Automaton">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Z" ordered="false" upperBound="-1"
-        eType="#//State"/>
+        eType="#//State" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="In" ordered="false" upperBound="-1"
         eType="#//Input" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Out" ordered="false" upperBound="-1"
-        eType="#//Output" containment="true"/>
+        eType="#//Output"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Delta" ordered="false"
         upperBound="-1" eType="#//Transition" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Z0" lowerBound="1" eType="#//State"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Z0" lowerBound="1" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition">
     <eStructuralFeatures xsi:type="ecore:EReference" name="PreState" lowerBound="1"
-        eType="#//State" containment="true"/>
+        eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="PostState" lowerBound="1"
-        eType="#//State" containment="true"/>
+        eType="#//State"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Input" lowerBound="1" eType="#//Input"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Activation" lowerBound="1"
@@ -29,7 +29,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Activation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Output" upperBound="-1"
-        eType="#//Output"/>
+        eType="#//Output" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Return" lowerBound="1"
         eType="#//ReturnValue" containment="true"/>
   </eClassifiers>
