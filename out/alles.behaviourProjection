@@ -1,237 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:behaviour="http://www.studieren.se/behaviour_projection" xsi:schemaLocation="http://www.studieren.se/behaviour_projection ../model/behaviour_projection.ecore">
-  <behaviour:Behaviour Lifeline="/1">
-    <Block PreState="/2" InMessage="/3" Activation="/9" PostState="/10"/>
-    <Block PreState="/11" InMessage="/12" Activation="/18" PostState="/19"/>
+  <behaviour:Behaviour>
+    <Lifeline Name="atm"/>
+    <Block>
+      <PreState Name="WaitCard"/>
+      <InMessage>
+        <Operation Name="insertCard"/>
+      </InMessage>
+      <Activation>
+        <OutMessage>
+          <Operation Name="requestPassword"/>
+          <Object Name="user"/>
+        </OutMessage>
+        <ReturnValue Name="Void"/>
+      </Activation>
+      <PostState Name="WaitPassword"/>
+    </Block>
+    <Block>
+      <PreState Name="WaitPassword"/>
+      <InMessage>
+        <Operation Name="enterPassword"/>
+      </InMessage>
+      <Activation>
+        <OutMessage>
+          <Operation Name="verifyAccount"/>
+          <Object Name="consortium"/>
+          <ReturnValue Name=":badAccount"/>
+        </OutMessage>
+        <OutMessage>
+          <Operation Name="badAccountMessage"/>
+          <Object Name="user"/>
+          <ReturnValue Name="Void"/>
+        </OutMessage>
+        <OutMessage>
+          <Operation Name="printReceipt"/>
+          <Object Name="user"/>
+          <ReturnValue Name="Void"/>
+        </OutMessage>
+        <OutMessage>
+          <Operation Name="ejectCard"/>
+          <Object Name="user"/>
+          <ReturnValue Name="Void"/>
+        </OutMessage>
+        <OutMessage>
+          <Operation Name="requestTakeCard"/>
+          <Object Name="user"/>
+        </OutMessage>
+        <ReturnValue Name="Void"/>
+      </Activation>
+      <PostState Name="WaitTakeCard"/>
+    </Block>
+    <Block>
+      <PreState Name="WaitTakeCard"/>
+      <InMessage>
+        <Operation Name="takeCard"/>
+      </InMessage>
+      <Activation>
+        <OutMessage>
+          <Operation Name="displayMainScreen"/>
+          <Object Name="user"/>
+        </OutMessage>
+        <ReturnValue Name="Void"/>
+      </Activation>
+      <PostState Name="WaitCard"/>
+    </Block>
+    <Block>
+      <PreState Name="WaitCard"/>
+      <InMessage>
+        <Operation Name="insertCard"/>
+      </InMessage>
+      <Activation>
+        <OutMessage>
+          <Operation Name="requestPassword"/>
+          <Object Name="user"/>
+        </OutMessage>
+        <ReturnValue Name="Void"/>
+      </Activation>
+      <PostState Name="WaitPassword"/>
+    </Block>
+    <Block>
+      <PreState Name="WaitPassword"/>
+      <InMessage>
+        <Operation Name="enterPassword"/>
+      </InMessage>
+      <Activation>
+        <OutMessage>
+          <Operation Name="verifyAccount"/>
+          <Object Name="consortium"/>
+          <ReturnValue Name=":badPassword"/>
+        </OutMessage>
+        <OutMessage>
+          <Operation Name="requestPassword"/>
+          <Object Name="user"/>
+        </OutMessage>
+        <ReturnValue Name="Void"/>
+      </Activation>
+      <PostState Name="WaitPassword"/>
+    </Block>
+    <Block>
+      <PreState Name="WaitPassword"/>
+      <InMessage>
+        <Operation Name="cancel"/>
+      </InMessage>
+      <Activation>
+        <OutMessage>
+          <Operation Name="canceledMessage"/>
+          <Object Name="user"/>
+          <ReturnValue Name="Void"/>
+        </OutMessage>
+        <OutMessage>
+          <Operation Name="ejectCard"/>
+          <Object Name="user"/>
+          <ReturnValue Name="Void"/>
+        </OutMessage>
+        <OutMessage>
+          <Operation Name="requestTakeCard"/>
+          <Object Name="user"/>
+        </OutMessage>
+        <ReturnValue Name="Void"/>
+      </Activation>
+      <PostState Name="WaitTakeCard"/>
+    </Block>
+    <Block>
+      <PreState Name="WaitTakeCard"/>
+      <InMessage>
+        <Operation Name="takeCard"/>
+      </InMessage>
+      <Activation>
+        <OutMessage>
+          <Operation Name="displayMainScreen"/>
+          <Object Name="user"/>
+        </OutMessage>
+        <ReturnValue Name="Void"/>
+      </Activation>
+      <PostState Name="WaitCard"/>
+    </Block>
   </behaviour:Behaviour>
-  <behaviour:Object Name="consortium"/>
-  <behaviour:State Name="WaitVerify"/>
-  <behaviour:InMessage Operation="/4"/>
-  <behaviour:Operation Name="verifyAccount"/>
-  <behaviour:OutMessage Operation="/6" Object="/7" ReturnValue="/8"/>
-  <behaviour:Operation Name="verifyCardWithBank"/>
-  <behaviour:Object Name="bank"/>
-  <behaviour:Return Name=":badBankAccount"/>
-  <behaviour:Activation OutMessage="/5" ReturnValue="/8"/>
-  <behaviour:State Name="WaitBankVerify"/>
-  <behaviour:State Name="WaitVerify"/>
-  <behaviour:InMessage Operation="/13"/>
-  <behaviour:Operation Name="verifyAccount"/>
-  <behaviour:OutMessage Operation="/15" Object="/16" ReturnValue="/17"/>
-  <behaviour:Operation Name="verifyCardWithBank"/>
-  <behaviour:Object Name="bank"/>
-  <behaviour:Return Name=":badBankPassword"/>
-  <behaviour:Activation OutMessage="/14" ReturnValue="/17"/>
-  <behaviour:State Name="WaitBankVerify"/>
-  <behaviour:Behaviour Lifeline="/21">
-    <Block PreState="/22" InMessage="/23" Activation="/25" PostState="/26"/>
-    <Block PreState="/27" InMessage="/28" Activation="/34" PostState="/35"/>
-    <Block PreState="/36" InMessage="/37" Activation="/39" PostState="/40"/>
-    <Block PreState="/41" InMessage="/42" Activation="/44" PostState="/45"/>
-    <Block PreState="/46" InMessage="/47" Activation="/53" PostState="/54"/>
-    <Block PreState="/55" InMessage="/56" Activation="/62" PostState="/63"/>
-    <Block PreState="/64" InMessage="/65" Activation="/71" PostState="/72"/>
-    <Block PreState="/73" InMessage="/74" Activation="/80" PostState="/81"/>
-    <Block PreState="/82" InMessage="/83" Activation="/85" PostState="/86"/>
-    <Block PreState="/87" InMessage="/88" Activation="/90" PostState="/91"/>
-    <Block PreState="/92" InMessage="/93" Activation="/99" PostState="/100"/>
-    <Block PreState="/101" InMessage="/102" Activation="/104" PostState="/105"/>
+  <behaviour:Behaviour>
+    <Lifeline Name="consortium"/>
+    <Block>
+      <PreState Name="WaitVerify"/>
+      <InMessage>
+        <Operation Name="verifyAccount"/>
+      </InMessage>
+      <Activation>
+        <OutMessage>
+          <Operation Name="verifyCardWithBank"/>
+          <Object Name="bank"/>
+        </OutMessage>
+        <ReturnValue Name=":badBankAccount"/>
+      </Activation>
+      <PostState Name="WaitVerify"/>
+    </Block>
+    <Block>
+      <PreState Name="WaitVerify"/>
+      <InMessage>
+        <Operation Name="verifyAccount"/>
+      </InMessage>
+      <Activation>
+        <OutMessage>
+          <Operation Name="verifyCardWithBank"/>
+          <Object Name="bank"/>
+        </OutMessage>
+        <ReturnValue Name=":badBankPassword"/>
+      </Activation>
+      <PostState Name="WaitVerify"/>
+    </Block>
   </behaviour:Behaviour>
-  <behaviour:Object Name="user"/>
-  <behaviour:State Name="WaitCard"/>
-  <behaviour:InMessage Operation="/24"/>
-  <behaviour:Operation Name="insertCard"/>
-  <behaviour:Activation/>
-  <behaviour:State Name="WaitPassword"/>
-  <behaviour:State/>
-  <behaviour:InMessage Operation="/29"/>
-  <behaviour:Operation Name="requestPassword"/>
-  <behaviour:OutMessage Operation="/31" Object="/32" ReturnValue="/33"/>
-  <behaviour:Operation Name="enterPassword"/>
-  <behaviour:Object Name="atm"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:Activation OutMessage="/30" ReturnValue="/33"/>
-  <behaviour:State Name="WaitTakeCard"/>
-  <behaviour:State/>
-  <behaviour:InMessage Operation="/38"/>
-  <behaviour:Operation Name="badAccountMessage"/>
-  <behaviour:Activation/>
-  <behaviour:State/>
-  <behaviour:State/>
-  <behaviour:InMessage Operation="/43"/>
-  <behaviour:Operation Name="printReceipt"/>
-  <behaviour:Activation/>
-  <behaviour:State/>
-  <behaviour:State/>
-  <behaviour:InMessage Operation="/48"/>
-  <behaviour:Operation Name="ejectCard"/>
-  <behaviour:OutMessage Operation="/50" Object="/51" ReturnValue="/52"/>
-  <behaviour:Operation Name="takeCard"/>
-  <behaviour:Object Name="atm"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:Activation OutMessage="/49" ReturnValue="/52"/>
-  <behaviour:State Name="WaitCard"/>
-  <behaviour:State/>
-  <behaviour:InMessage Operation="/57"/>
-  <behaviour:Operation Name="displayMainScreen"/>
-  <behaviour:OutMessage Operation="/59" Object="/60" ReturnValue="/61"/>
-  <behaviour:Operation Name="insertCard"/>
-  <behaviour:Object Name="atm"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:Activation OutMessage="/58" ReturnValue="/61"/>
-  <behaviour:State Name="WaitPassword"/>
-  <behaviour:State/>
-  <behaviour:InMessage Operation="/66"/>
-  <behaviour:Operation Name="requestPassword"/>
-  <behaviour:OutMessage Operation="/68" Object="/69" ReturnValue="/70"/>
-  <behaviour:Operation Name="enterPassword"/>
-  <behaviour:Object Name="atm"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:Activation OutMessage="/67" ReturnValue="/70"/>
-  <behaviour:State Name="WaitPassword"/>
-  <behaviour:State/>
-  <behaviour:InMessage Operation="/75"/>
-  <behaviour:Operation Name="requestPassword"/>
-  <behaviour:OutMessage Operation="/77" Object="/78" ReturnValue="/79"/>
-  <behaviour:Operation Name="cancel"/>
-  <behaviour:Object Name="atm"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:Activation OutMessage="/76" ReturnValue="/79"/>
-  <behaviour:State Name="WaitTakeCard"/>
-  <behaviour:State/>
-  <behaviour:InMessage Operation="/84"/>
-  <behaviour:Operation Name="canceledMessage"/>
-  <behaviour:Activation/>
-  <behaviour:State/>
-  <behaviour:State/>
-  <behaviour:InMessage Operation="/89"/>
-  <behaviour:Operation Name="ejectCard"/>
-  <behaviour:Activation/>
-  <behaviour:State/>
-  <behaviour:State/>
-  <behaviour:InMessage Operation="/94"/>
-  <behaviour:Operation Name="requestTakeCard"/>
-  <behaviour:OutMessage Operation="/96" Object="/97" ReturnValue="/98"/>
-  <behaviour:Operation Name="takeCard"/>
-  <behaviour:Object Name="atm"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:Activation OutMessage="/95" ReturnValue="/98"/>
-  <behaviour:State Name="WaitCard"/>
-  <behaviour:State/>
-  <behaviour:InMessage Operation="/103"/>
-  <behaviour:Operation Name="displayMainScreen"/>
-  <behaviour:Activation/>
-  <behaviour:State/>
-  <behaviour:Behaviour Lifeline="/107">
-    <Block PreState="/108" InMessage="/109" Activation="/111" PostState="/112"/>
-    <Block PreState="/113" InMessage="/114" Activation="/116" PostState="/117"/>
+  <behaviour:Behaviour>
+    <Lifeline Name="bank"/>
+    <Block>
+      <PreState Name="WaitBankVerify"/>
+      <InMessage>
+        <Operation Name="verifyCardWithBank"/>
+      </InMessage>
+      <Activation/>
+      <PostState Name="WaitBankVerify"/>
+    </Block>
+    <Block>
+      <PreState Name="WaitBankVerify"/>
+      <InMessage>
+        <Operation Name="verifyCardWithBank"/>
+      </InMessage>
+      <Activation/>
+      <PostState Name="WaitBankVerify"/>
+    </Block>
   </behaviour:Behaviour>
-  <behaviour:Object Name="bank"/>
-  <behaviour:State Name="WaitBankVerify"/>
-  <behaviour:InMessage Operation="/110"/>
-  <behaviour:Operation Name="verifyCardWithBank"/>
-  <behaviour:Activation/>
-  <behaviour:State Name="WaitBankVerify"/>
-  <behaviour:State Name="WaitBankVerify"/>
-  <behaviour:InMessage Operation="/115"/>
-  <behaviour:Operation Name="verifyCardWithBank"/>
-  <behaviour:Activation/>
-  <behaviour:State Name="WaitBankVerify"/>
-  <behaviour:Behaviour Lifeline="/119">
-    <Block PreState="/120" InMessage="/121" Activation="/127" PostState="/128"/>
-    <Block PreState="/129" InMessage="/130" Activation="/148" PostState="/149"/>
-    <Block PreState="/150" InMessage="/151" Activation="/157" PostState="/158"/>
-    <Block PreState="/159" InMessage="/160" Activation="/166" PostState="/167"/>
-    <Block PreState="/168" InMessage="/169" Activation="/179" PostState="/180"/>
-    <Block PreState="/181" InMessage="/182" Activation="/196" PostState="/197"/>
-    <Block PreState="/198" InMessage="/199" Activation="/205" PostState="/206"/>
-  </behaviour:Behaviour>
-  <behaviour:Object Name="atm"/>
-  <behaviour:State Name="WaitCard"/>
-  <behaviour:InMessage Operation="/122"/>
-  <behaviour:Operation Name="insertCard"/>
-  <behaviour:OutMessage Operation="/124" Object="/125" ReturnValue="/126"/>
-  <behaviour:Operation Name="requestPassword"/>
-  <behaviour:Object Name="user"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:Activation OutMessage="/123" ReturnValue="/126"/>
-  <behaviour:State/>
-  <behaviour:State Name="WaitPassword"/>
-  <behaviour:InMessage Operation="/131"/>
-  <behaviour:Operation Name="enterPassword"/>
-  <behaviour:OutMessage Operation="/133" Object="/134" ReturnValue="/135"/>
-  <behaviour:Operation Name="verifyAccount"/>
-  <behaviour:Object Name="consortium"/>
-  <behaviour:Return Name=":badAccount"/>
-  <behaviour:OutMessage Operation="/137" Object="/138" ReturnValue="/139"/>
-  <behaviour:Operation Name="badAccountMessage"/>
-  <behaviour:Object Name="user"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:OutMessage Operation="/141" Object="/142" ReturnValue="/143"/>
-  <behaviour:Operation Name="printReceipt"/>
-  <behaviour:Object Name="user"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:OutMessage Operation="/145" Object="/146" ReturnValue="/147"/>
-  <behaviour:Operation Name="ejectCard"/>
-  <behaviour:Object Name="user"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:Activation OutMessage="/132 /136 /140 /144" ReturnValue="/147"/>
-  <behaviour:State/>
-  <behaviour:State Name="WaitTakeCard"/>
-  <behaviour:InMessage Operation="/152"/>
-  <behaviour:Operation Name="takeCard"/>
-  <behaviour:OutMessage Operation="/154" Object="/155" ReturnValue="/156"/>
-  <behaviour:Operation Name="displayMainScreen"/>
-  <behaviour:Object Name="user"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:Activation OutMessage="/153" ReturnValue="/156"/>
-  <behaviour:State/>
-  <behaviour:State Name="WaitCard"/>
-  <behaviour:InMessage Operation="/161"/>
-  <behaviour:Operation Name="insertCard"/>
-  <behaviour:OutMessage Operation="/163" Object="/164" ReturnValue="/165"/>
-  <behaviour:Operation Name="requestPassword"/>
-  <behaviour:Object Name="user"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:Activation OutMessage="/162" ReturnValue="/165"/>
-  <behaviour:State/>
-  <behaviour:State Name="WaitPassword"/>
-  <behaviour:InMessage Operation="/170"/>
-  <behaviour:Operation Name="enterPassword"/>
-  <behaviour:OutMessage Operation="/172" Object="/173" ReturnValue="/174"/>
-  <behaviour:Operation Name="verifyAccount"/>
-  <behaviour:Object Name="consortium"/>
-  <behaviour:Return Name=":badPassword"/>
-  <behaviour:OutMessage Operation="/176" Object="/177" ReturnValue="/178"/>
-  <behaviour:Operation Name="requestPassword"/>
-  <behaviour:Object Name="user"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:Activation OutMessage="/171 /175" ReturnValue="/178"/>
-  <behaviour:State/>
-  <behaviour:State Name="WaitPassword"/>
-  <behaviour:InMessage Operation="/183"/>
-  <behaviour:Operation Name="cancel"/>
-  <behaviour:OutMessage Operation="/185" Object="/186" ReturnValue="/187"/>
-  <behaviour:Operation Name="canceledMessage"/>
-  <behaviour:Object Name="user"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:OutMessage Operation="/189" Object="/190" ReturnValue="/191"/>
-  <behaviour:Operation Name="ejectCard"/>
-  <behaviour:Object Name="user"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:OutMessage Operation="/193" Object="/194" ReturnValue="/195"/>
-  <behaviour:Operation Name="requestTakeCard"/>
-  <behaviour:Object Name="user"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:Activation OutMessage="/184 /188 /192" ReturnValue="/195"/>
-  <behaviour:State/>
-  <behaviour:State Name="WaitTakeCard"/>
-  <behaviour:InMessage Operation="/200"/>
-  <behaviour:Operation Name="takeCard"/>
-  <behaviour:OutMessage Operation="/202" Object="/203" ReturnValue="/204"/>
-  <behaviour:Operation Name="displayMainScreen"/>
-  <behaviour:Object Name="user"/>
-  <behaviour:Return Name="Void"/>
-  <behaviour:Activation OutMessage="/201" ReturnValue="/204"/>
-  <behaviour:State/>
 </xmi:XMI>

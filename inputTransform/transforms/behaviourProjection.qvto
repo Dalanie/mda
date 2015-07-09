@@ -35,8 +35,8 @@ mapping OrderedSet(Communication)::transformCommunicationSet() : Block {
 	result.Activation := object BMO::Activation { ReturnValue := outMessages->last().ReturnValue };
 	// transform every outgoing message in Communication into an OutMessage
 	result.Activation.OutMessage += outMessages;
-	// copy post state of last outgoing message
-	result.PostState := object BMO::State { Name := self->last().PostState.Name };
+	// copy post state of first incoming message
+	result.PostState := object BMO::State { Name := self->first().PostState.Name };
 }
 
 mapping Communication::transformCommunication() : OutMessage {
@@ -79,7 +79,7 @@ helper OrderedSet(Communication)::splitOnIncomingMessages(in o : Object) : Order
 			offset := self->indexOf(incomingMessage->at(2));
 		}
 	};
-	// get all the elements before (exclusive) the first incoming message
+	// get all the elements before (exclusive) the incoming message
 	var firstSubset = self->subOrderedSet(1, offset - 1);
 	// create a new Set of Sets
 	var resultSet := OrderedSet{firstSubset};
