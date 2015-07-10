@@ -11,48 +11,48 @@ main() {
 }
 
 helper collectSystemObjects() : Set(Object){
-	var objects = scenario.objectsOfType(Scenario)->asOrderedSet().Communication->collect(Sender);
-	objects += scenario.objectsOfType(Scenario)->asOrderedSet().Communication->collect(Receiver);
+	var objects = scenario.objectsOfType(Scenario)->asOrderedSet().communication->collect(sender);
+	objects += scenario.objectsOfType(Scenario)->asOrderedSet().communication->collect(receiver);
 	objects := objects->select(c | c <> null );
-	objects := objects->select(c | c.Name <> "user");
+	objects := objects->select(c | c.name <> "user");
 	return objects->asSet();
 }
 
 mapping Object::transform() : Behaviour {
-	result.Lifeline := object BMO::Object { Name := self.Name; };
-	result.Block += self.getProjectionForObject();
+	result.lifeline := object BMO::Object { name := self.name; };
+	result.block += self.getProjectionForObject();
 }
 
 
 mapping OrderedSet(Communication)::transformCommunicationSet() : Block {
 	// copy pre state of incomming message
-	result.PreState := object BMO::State { Name := self->first().PreState.Name };
+	result.preState := object BMO::State { name := self->first().preState.name };
 	// copy operation
-	result.InMessage := object BMO::InMessage {  };
-	result.InMessage.Operation := object BMO::Operation { Name := self->first().Operation.Name };
+	result.inMessage := object BMO::InMessage {  };
+	result.inMessage.operation := object BMO::Operation { name := self->first().operation.name };
 	var outMessages = self->asOrderedSet()->select(c | c <> self->first()).map transformCommunication();
 	// copy the return value of the incoming message as result value of the whole activation
-	result.Activation := object BMO::Activation { ReturnValue := object BMO::Return { Name := self->first().Return.Name } };
+	result.activation := object BMO::Activation { returnValue := object BMO::Return { name := self->first().returnValue.name } };
 	// transform every outgoing message in Communication into an OutMessage
-	result.Activation.OutMessage += outMessages;
+	result.activation.outMessage += outMessages;
 	// copy post state of first incoming message
-	result.PostState := object BMO::State { Name := self->first().PostState.Name };
+	result.postState := object BMO::State { name := self->first().postState.name };
 }
 
 mapping Communication::transformCommunication() : OutMessage {
-	log('mapping communication ' + self.Operation.Name);
+	log('mapping communication ' + self.operation.name);
 	// copy the operation name
-	result.Operation := object BMO::Operation { Name := self.Operation.Name };
+	result.operation := object BMO::Operation { name := self.operation.name };
 	// copy the receiver (TODO not quite sure if this is correct, so TODO in "transformCommunicationSet")
-	result.Object := object BMO::Object { Name := self.Receiver.Name };
+	result.outObject := object BMO::Object { name := self.receiver.name };
 	// copy the return type
-	result.ReturnValue := object BMO::Return { Name := self.Return.Name };
+	result.returnValue := object BMO::Return { name := self.returnValue.name };
 }
 
 helper Object::getProjectionForObject() : Sequence(Block) {
-	log('Projection for Object ' + self.Name);
+	log('Projection for Object ' + self.name);
 	// get all communications where self is either sender or receiver
-	var projectionSet = scenario.objectsOfType(Scenario)->asOrderedSet().Communication->select(c | c.Sender = self or c.Receiver = self);
+	var projectionSet = scenario.objectsOfType(Scenario)->asOrderedSet().communication->select(c | c.sender = self or c.receiver = self);
 	// split the communication set into subsets that until the next receving message (exclusive)
 	var splittedProjections = projectionSet->asOrderedSet()->splitOnIncomingMessages(self);
 	splittedProjections.printOrderedSet('  ');
@@ -64,7 +64,7 @@ helper OrderedSet(Communication)::splitOnIncomingMessages(in o : Object) : Order
 	if(self->isEmpty()) return null;
 	
 	// get all incoming messages
-	var incomingMessage := self->select(c | c.Receiver = o);
+	var incomingMessage := self->select(c | c.receiver = o);
 	// get the first incoming message
 	var firstIncommingMessage := incomingMessage->first();
 	// get the offset of the first incoming message
@@ -98,11 +98,11 @@ helper OrderedSet(Communication)::splitOnIncomingMessages(in o : Object) : Order
 
 // debugging
 helper Object::printObject() {
-	log('Object ' + self.Name);	
+	log('Object ' + self.name);	
 }
 
 helper Communication::printCommunication(in tabs : String) {
-	log(tabs + 'Communication ' + self.Operation.Name + ' from ' + self.Sender.Name + ' to ' + self.Receiver.Name);
+	log(tabs + 'Communication ' + self.operation.name + ' from ' + self.sender.name + ' to ' + self.receiver.name);
 }
 
 helper OrderedSet(Communication)::printOrderedSet(in tabs : String) {

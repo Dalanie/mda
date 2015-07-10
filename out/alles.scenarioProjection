@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:scenario="http://www.studieren.se/scenario_projection" xsi:schemaLocation="http://www.studieren.se/scenario_projection ../model/scenario_projection.ecore">
   <scenario:Scenario>
-    <Communication PreState="/5" Sender="/2" Operation="/3" Receiver="/1" Return="/4" PostState="/6"/>
-    <Communication Sender="/1" Operation="/7" Receiver="/2" Return="/4"/>
-    <Communication PreState="/6" Sender="/2" Operation="/8" Receiver="/1" Return="/4" PostState="/9"/>
-    <Communication PreState="/13" Sender="/1" Operation="/11" Receiver="/10" Return="/12" PostState="/13"/>
-    <Communication PreState="/17" Sender="/10" Operation="/15" Receiver="/14" Return="/16" PostState="/17"/>
-    <Communication Sender="/1" Operation="/18" Receiver="/2" Return="/4"/>
-    <Communication Sender="/1" Operation="/19" Receiver="/2" Return="/4"/>
-    <Communication Sender="/1" Operation="/20" Receiver="/2" Return="/4"/>
-    <Communication Sender="/1" Operation="/21" Receiver="/2" Return="/4"/>
-    <Communication PreState="/9" Sender="/2" Operation="/22" Receiver="/1" Return="/4" PostState="/5"/>
-    <Communication Sender="/1" Operation="/23" Receiver="/2" Return="/4"/>
+    <communication preState="/5" sender="/2" operation="/3" receiver="/1" returnValue="/4" postState="/6"/>
+    <communication sender="/1" operation="/7" receiver="/2" returnValue="/4"/>
+    <communication preState="/6" sender="/2" operation="/8" receiver="/1" returnValue="/4" postState="/9"/>
+    <communication preState="/13" sender="/1" operation="/11" receiver="/10" returnValue="/12" postState="/13"/>
+    <communication preState="/17" sender="/10" operation="/15" receiver="/14" returnValue="/16" postState="/17"/>
+    <communication sender="/1" operation="/18" receiver="/2" returnValue="/4"/>
+    <communication sender="/1" operation="/19" receiver="/2" returnValue="/4"/>
+    <communication sender="/1" operation="/20" receiver="/2" returnValue="/4"/>
+    <communication sender="/1" operation="/21" receiver="/2" returnValue="/4"/>
+    <communication preState="/9" sender="/2" operation="/22" receiver="/1" returnValue="/4" postState="/5"/>
+    <communication sender="/1" operation="/23" receiver="/2" returnValue="/4"/>
   </scenario:Scenario>
-  <scenario:Object Name="atm"/>
-  <scenario:Object Name="user"/>
-  <scenario:Operation Name="insertCard"/>
-  <scenario:Return Name="Void" IsVoid="true"/>
-  <scenario:State Name="WaitCard"/>
-  <scenario:State Name="WaitPassword"/>
-  <scenario:Operation Name="requestPassword"/>
-  <scenario:Operation Name="enterPassword"/>
-  <scenario:State Name="WaitTakeCard"/>
-  <scenario:Object Name="consortium"/>
-  <scenario:Operation Name="verifyAccount"/>
-  <scenario:Return Name=":badAccount"/>
-  <scenario:State Name="WaitVerify"/>
-  <scenario:Object Name="bank"/>
-  <scenario:Operation Name="verifyCardWithBank"/>
-  <scenario:Return Name=":badBankAccount"/>
-  <scenario:State Name="WaitBankVerify"/>
-  <scenario:Operation Name="badAccountMessage"/>
-  <scenario:Operation Name="printReceipt"/>
-  <scenario:Operation Name="ejectCard"/>
-  <scenario:Operation Name="requestTakeCard"/>
-  <scenario:Operation Name="takeCard"/>
-  <scenario:Operation Name="displayMainScreen"/>
+  <scenario:Object name="atm"/>
+  <scenario:Object name="user"/>
+  <scenario:Operation name="insertCard"/>
+  <scenario:Return name="Void" isVoid="true"/>
+  <scenario:State name="WaitCard"/>
+  <scenario:State name="WaitPassword"/>
+  <scenario:Operation name="requestPassword"/>
+  <scenario:Operation name="enterPassword"/>
+  <scenario:State name="WaitTakeCard"/>
+  <scenario:Object name="consortium"/>
+  <scenario:Operation name="verifyAccount"/>
+  <scenario:Return name=":badAccount"/>
+  <scenario:State name="WaitVerify"/>
+  <scenario:Object name="bank"/>
+  <scenario:Operation name="verifyCardWithBank"/>
+  <scenario:Return name=":badBankAccount"/>
+  <scenario:State name="WaitBankVerify"/>
+  <scenario:Operation name="badAccountMessage"/>
+  <scenario:Operation name="printReceipt"/>
+  <scenario:Operation name="ejectCard"/>
+  <scenario:Operation name="requestTakeCard"/>
+  <scenario:Operation name="takeCard"/>
+  <scenario:Operation name="displayMainScreen"/>
   <scenario:Scenario>
-    <Communication PreState="/5" Sender="/2" Operation="/25" Receiver="/1" Return="/4" PostState="/6"/>
-    <Communication Sender="/1" Operation="/26" Receiver="/2" Return="/4"/>
-    <Communication PreState="/6" Sender="/2" Operation="/27" Receiver="/1" Return="/4" PostState="/6"/>
-    <Communication PreState="/13" Sender="/1" Operation="/28" Receiver="/10" Return="/29" PostState="/13"/>
-    <Communication PreState="/17" Sender="/10" Operation="/30" Receiver="/14" Return="/31" PostState="/17"/>
-    <Communication Sender="/1" Operation="/32" Receiver="/2" Return="/4"/>
-    <Communication PreState="/6" Sender="/2" Operation="/33" Receiver="/1" Return="/4" PostState="/9"/>
-    <Communication Sender="/1" Operation="/34" Receiver="/2" Return="/4"/>
-    <Communication Sender="/1" Operation="/35" Receiver="/2" Return="/4"/>
-    <Communication Sender="/1" Operation="/36" Receiver="/2" Return="/4"/>
-    <Communication PreState="/9" Sender="/2" Operation="/37" Receiver="/1" Return="/4" PostState="/5"/>
-    <Communication Sender="/1" Operation="/38" Receiver="/2" Return="/4"/>
+    <communication preState="/5" sender="/2" operation="/25" receiver="/1" returnValue="/4" postState="/6"/>
+    <communication sender="/1" operation="/26" receiver="/2" returnValue="/4"/>
+    <communication preState="/6" sender="/2" operation="/27" receiver="/1" returnValue="/4" postState="/6"/>
+    <communication preState="/13" sender="/1" operation="/28" receiver="/10" returnValue="/29" postState="/13"/>
+    <communication preState="/17" sender="/10" operation="/30" receiver="/14" returnValue="/31" postState="/17"/>
+    <communication sender="/1" operation="/32" receiver="/2" returnValue="/4"/>
+    <communication preState="/6" sender="/2" operation="/33" receiver="/1" returnValue="/4" postState="/9"/>
+    <communication sender="/1" operation="/34" receiver="/2" returnValue="/4"/>
+    <communication sender="/1" operation="/35" receiver="/2" returnValue="/4"/>
+    <communication sender="/1" operation="/36" receiver="/2" returnValue="/4"/>
+    <communication preState="/9" sender="/2" operation="/37" receiver="/1" returnValue="/4" postState="/5"/>
+    <communication sender="/1" operation="/38" receiver="/2" returnValue="/4"/>
   </scenario:Scenario>
-  <scenario:Operation Name="insertCard"/>
-  <scenario:Operation Name="requestPassword"/>
-  <scenario:Operation Name="enterPassword"/>
-  <scenario:Operation Name="verifyAccount"/>
-  <scenario:Return Name=":badPassword"/>
-  <scenario:Operation Name="verifyCardWithBank"/>
-  <scenario:Return Name=":badBankPassword"/>
-  <scenario:Operation Name="requestPassword"/>
-  <scenario:Operation Name="cancel"/>
-  <scenario:Operation Name="canceledMessage"/>
-  <scenario:Operation Name="ejectCard"/>
-  <scenario:Operation Name="requestTakeCard"/>
-  <scenario:Operation Name="takeCard"/>
-  <scenario:Operation Name="displayMainScreen"/>
+  <scenario:Operation name="insertCard"/>
+  <scenario:Operation name="requestPassword"/>
+  <scenario:Operation name="enterPassword"/>
+  <scenario:Operation name="verifyAccount"/>
+  <scenario:Return name=":badPassword"/>
+  <scenario:Operation name="verifyCardWithBank"/>
+  <scenario:Return name=":badBankPassword"/>
+  <scenario:Operation name="requestPassword"/>
+  <scenario:Operation name="cancel"/>
+  <scenario:Operation name="canceledMessage"/>
+  <scenario:Operation name="ejectCard"/>
+  <scenario:Operation name="requestTakeCard"/>
+  <scenario:Operation name="takeCard"/>
+  <scenario:Operation name="displayMainScreen"/>
 </xmi:XMI>

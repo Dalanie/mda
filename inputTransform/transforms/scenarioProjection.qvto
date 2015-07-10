@@ -18,7 +18,7 @@ mapping Interaction::mapInteraction() : Scenario {
 	             
 	             
 	-- Für jede empfangene Nachricht gibt es einen solchen Eintrag.
-	result.Communication += someMSG.map mapCommunication();
+	result.communication += someMSG.map mapCommunication();
 }
 
 
@@ -28,13 +28,13 @@ mapping MessageOccurrenceSpecification::mapCommunication() : Communication
            and self.message.messageSort <> MessageSort::reply } {
 	
 	-- Setze den Empfänger.
-	result.Receiver := self.covered->asOrderedSet()->first().map mapReceiverOrSender();
+	result.receiver := self.covered->asOrderedSet()->first().map mapreceiverOrsender();
 	
 	-- Setze den Absender.
-	result.Sender := self.message.sendEvent.oclAsType(MessageOccurrenceSpecification).covered->asOrderedSet()->first().map mapReceiverOrSender();
+	result.sender := self.message.sendEvent.oclAsType(MessageOccurrenceSpecification).covered->asOrderedSet()->first().map mapreceiverOrsender();
 	
 	-- Setze die Operation (= Nachricht), die empfangen wird.
-	result.Operation := self.message.map mapOperation();
+	result.operation := self.message.map mapOperation();
 	
 	-- Ermittle die MessageOccurrences für den Rückgabewert (sollten 0 oder genau 1 sein).
     var results =
@@ -50,10 +50,10 @@ mapping MessageOccurrenceSpecification::mapCommunication() : Communication
 		        
 	if (results->oclIsInvalid() or results->isEmpty()) {
 		-- Rückgabetyp ist nur ein Void.
-		result.Return := createVoid();
+		result.returnValue := createVoid();
 	} else {
 		-- Wir haben eine Rückantwort.
-		result.Return := results->asOrderedSet()->first().message.map mapReturn();
+		result.returnValue := results->asOrderedSet()->first().message.map mapreturnValue();
 	};
 	
 	-- Pre-States sind die StateInvariants, deren erstes constrainedElement die empfangene
@@ -82,40 +82,40 @@ mapping MessageOccurrenceSpecification::mapCommunication() : Communication
 	    postStateName : String;               
 		                
 	if (not preStates->isEmpty()) {
-		result.PreState := preStates->asOrderedSet()->first().mapState();
-		preStateName := result.PreState.Name;
+		result.preState := preStates->asOrderedSet()->first().mapState();
+		preStateName := result.preState.name;
 	} else {
 	    preStateName := '      -      ';
 	};
 	
 	if (not postStates->isEmpty()) {
-		result.PostState := postStates->asOrderedSet()->first().mapState();
-		postStateName := result.PostState.Name;
+		result.postState := postStates->asOrderedSet()->first().mapState();
+		postStateName := result.postState.name;
 	} else {
 		postStateName := '      -      ';
 	};
 
 	log (preStateName + ';' + 
-	     result.Sender.Name   + ' ; ' +
-	     result.Operation.Name + ' ; ' + 
-	     result.Receiver.Name  + ' ; ' + 
-	     result.Return.Name    + ' ; ' + 
+	     result.sender.name   + ' ; ' +
+	     result.operation.name + ' ; ' + 
+	     result.receiver.name  + ' ; ' + 
+	     result.returnValue.name    + ' ; ' + 
 	     postStateName);
 }
 
--- Mappe eine Lifeline als Receiver oder Sender Object.
-mapping Lifeline::mapReceiverOrSender() : Object {
-	result.Name := self.name;
+-- Mappe eine Lifeline als receiver oder sender Object.
+mapping Lifeline::mapreceiverOrsender() : Object {
+	result.name := self.name;
 }
 
 -- Mappe eine Nachricht auf eine Operation (= empfangene Nachricht).
 mapping Message::mapOperation() : IMD::Operation {
-	result.Name := self.name;
+	result.name := self.name;
 }
 
--- Mappe eine Nachricht auf ein Return (= gesendete Nachricht).
-mapping Message::mapReturn() : IMD::Return {
-	result.Name := self.name;
+-- Mappe eine Nachricht auf ein returnValue (= gesendete Nachricht).
+mapping Message::mapreturnValue() : IMD::Return {
+	result.name := self.name;
 }
 
 -- Erzeuge den Void-Type.
@@ -123,14 +123,14 @@ helper createVoid() : IMD::Return {
     -- Sicherstellen, dass er nur einmal angelegt wird.
 	var existVoids = 
 	    scp.objectsOfType(IMD::Return)
-	        ->select(vo | vo.IsVoid = true);
+	        ->select(vo | vo.isVoid = true);
 
 	if (not existVoids->isEmpty()) {
 		return existVoids->asOrderedSet()->first();
 	} else {
 		return object IMD::Return {
-		    Name   := 'Void';
-			IsVoid := true;
+		    name   := 'Void';
+			isVoid := true;
 		};
 	};
 	return null;
@@ -140,7 +140,7 @@ helper StateInvariant::mapState() : IMD::State {
     -- normales Mapping reicht nicht aus, da States mehrmals im Diagramm vorkommen könnten.
 	var existStates =
 	    scp.objectsOfType(IMD::State)
-	        ->select(st | st.Name = self.name);
+	        ->select(st | st.name = self.name);
 	        
 	if (not existStates->isEmpty()) {
 		-- Bestehenden State benutzen.
@@ -148,7 +148,7 @@ helper StateInvariant::mapState() : IMD::State {
 	} else {
 		-- State neu anlegen.
 		return object IMD::State {
-			Name := self.name;
+			name := self.name;
 		};
 	};
 	return null;

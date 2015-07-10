@@ -3,32 +3,32 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ScenarioProjection" nsURI="http://www.studieren.se/scenario_projection"
     nsPrefix="scenario">
   <eClassifiers xsi:type="ecore:EClass" name="Scenario">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Communication" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="communication" upperBound="-1"
         eType="#//Communication" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Communication">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="PreState" eType="#//State"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Sender" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preState" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sender" lowerBound="1"
         eType="#//Object"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Operation" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" lowerBound="1"
         eType="#//Operation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Receiver" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="receiver" lowerBound="1"
         eType="#//Object"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Return" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" lowerBound="1"
         eType="#//Return"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="PostState" eType="#//State"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postState" eType="#//State"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Object">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Return">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="IsVoid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isVoid" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Operation">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

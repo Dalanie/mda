@@ -15,15 +15,15 @@ helper mergeLifelineBehaviours(inBehaviours : Set(Behaviour)) : Set(Behaviour){
 	var outBehaviours : Set(Behaviour);
 	
 	inBehaviours->forEach(behaviour) {
-		var existentBehaviour : Behaviour = findBehaviourOfLifeline(outBehaviours, behaviour.Lifeline.Name);
+		var existentBehaviour : Behaviour = findBehaviourOfLifeline(outBehaviours, behaviour.lifeline.name);
 		
 		if(existentBehaviour = null) {
 			// Behaviour doesn't exist yet; add
 			outBehaviours += behaviour;
 		} else {
 			// Behaviour already exists; merge
-			behaviour.Block->forEach(block) {
-				existentBehaviour.Block += block;
+			behaviour.block->forEach(block) {
+				existentBehaviour.block += block;
 			}
 		}
 	};
@@ -31,9 +31,9 @@ helper mergeLifelineBehaviours(inBehaviours : Set(Behaviour)) : Set(Behaviour){
 	return outBehaviours;
 }
 
-helper findBehaviourOfLifeline(behaviours : Set(Behaviour), lifelineName : String) : Behaviour {
+helper findBehaviourOfLifeline(behaviours : Set(Behaviour), lifelinename : String) : Behaviour {
 	behaviours->forEach(behaviour) {
-		if(behaviour.Lifeline.Name.=(lifelineName)) {
+		if(behaviour.lifeline.name.=(lifelinename)) {
 			return behaviour;
 		}
 	};
@@ -43,21 +43,21 @@ helper findBehaviourOfLifeline(behaviours : Set(Behaviour), lifelineName : Strin
 
 helper getStatesOfBehaviour(behaviour : Behaviour) : Set(IOAutomaton::State) {
 	var states : Set(IOAutomaton::State);
-	behaviour.Block->forEach(block) {
-		if(not containsStateWithName(states, block.PreState.Name)) {
-			states += block.PreState-> map mapState();
+	behaviour.block->forEach(block) {
+		if(not containsStateWithname(states, block.preState.name)) {
+			states += block.preState-> map mapState();
 		};
-		if(not containsStateWithName(states, block.PostState.Name)) {
-			states += block.PostState-> map mapState();
+		if(not containsStateWithname(states, block.postState.name)) {
+			states += block.postState-> map mapState();
 		};
 	};
 	
 	return states;
 }
 
-helper containsStateWithName(states : Set(IOAutomaton::State), stateName : String) : Boolean {
+helper containsStateWithname(states : Set(IOAutomaton::State), statename : String) : Boolean {
 	states->forEach(state) {
-		if(state.Name.=(stateName)) {
+		if(state.name.=(statename)) {
 			return true;
 		}
 	};
@@ -67,7 +67,7 @@ helper containsStateWithName(states : Set(IOAutomaton::State), stateName : Strin
 
 helper containsInput(inputs : Set(IOAutomaton::Input), probeInput : IOAutomaton::Input) : Boolean {
 	inputs->forEach(input) {
-		if(input.Operation.Name = (probeInput.Operation.Name)) {
+		if(input.operation.name = (probeInput.operation.name)) {
 			return true;
 		}
 	};
@@ -78,8 +78,8 @@ helper containsInput(inputs : Set(IOAutomaton::Input), probeInput : IOAutomaton:
 helper getInputsFromTransitions(transitions : Set(IOAutomaton::Transition)) : Set(IOAutomaton::Input) {
 	var inputs : Set(IOAutomaton::Input);
 	transitions->forEach(transition) {
-		if(not containsInput(inputs, transition.Input)) {
-			inputs += transition.Input;
+		if(not containsInput(inputs, transition.input)) {
+			inputs += transition.input;
 		}
 	};
 	return inputs;
@@ -87,7 +87,7 @@ helper getInputsFromTransitions(transitions : Set(IOAutomaton::Transition)) : Se
 
 helper containsOutput(outputs : Set(IOAutomaton::Output), probeOutput : IOAutomaton::Output) : Boolean {
 	outputs->forEach(output) {
-		if(output.Operation.Name.=(probeOutput.Operation.Name)) {
+		if(output.operation.name.=(probeOutput.operation.name)) {
 			return true;
 		}
 	};
@@ -97,7 +97,7 @@ helper containsOutput(outputs : Set(IOAutomaton::Output), probeOutput : IOAutoma
 
 helper getAutomatonState(states : Set(IOAutomaton::State), inputState : BehaviourProjection::State) : IOAutomaton::State {
 	states->forEach(state) {
-		if(state.Name.=(inputState.Name)) {
+		if(state.name.=(inputState.name)) {
 			return state;
 		}
 	};
@@ -106,56 +106,56 @@ helper getAutomatonState(states : Set(IOAutomaton::State), inputState : Behaviou
 }
 
 helper IOAutomaton::Activation::equalsBehaviourActivation(activation : BehaviourProjection::Activation) : Boolean {
-	return self.Return.Name = activation.ReturnValue.Name 
-		and self.Return.IsVoid = activation.ReturnValue.IsVoid 
-		and self.Output->forAll(o1 | activation.OutMessage->exists(o2 | o1.Name = o2.Operation.Name 
-			and o1.Operation.Name = o2.Operation.Name 
-			and o1.Object.Name =    o2.Object.Name 
-			and ((o1.Return = null and o2.ReturnValue = null) or 
-				(o1.Return.Name =    o2.ReturnValue.Name and o1.Return.IsVoid =  o2.ReturnValue.IsVoid))))
-		and activation.OutMessage->forAll(o1 | self.Output->exists(o2 | o2.Name = o1.Operation.Name 
-			and o2.Operation.Name = o1.Operation.Name 
-			and o2.Object.Name =    o1.Object.Name 
-			and ((o2.Return = null and o1.ReturnValue = null) or 
-				(o2.Return.Name =    o1.ReturnValue.Name and o2.Return.IsVoid =  o1.ReturnValue.IsVoid))));
+	return self.returnValue.name = activation.returnValue.name 
+		and self.returnValue.isVoid = activation.returnValue.isVoid 
+		and self.output->forAll(o1 | activation.outMessage->exists(o2 | o1.name = o2.operation.name 
+			and o1.operation.name = o2.operation.name 
+			and o1.outObject.name =    o2.outObject.name 
+			and ((o1.returnValue = null and o2.returnValue = null) or 
+				(o1.returnValue.name =    o2.returnValue.name and o1.returnValue.isVoid =  o2.returnValue.isVoid))))
+		and activation.outMessage->forAll(o1 | self.output->exists(o2 | o2.name = o1.operation.name 
+			and o2.operation.name = o1.operation.name 
+			and o2.outObject.name =    o1.outObject.name 
+			and ((o2.returnValue = null and o1.returnValue = null) or 
+				(o2.returnValue.name =    o1.returnValue.name and o2.returnValue.isVoid =  o1.returnValue.isVoid))));
 }
 
 mapping BehaviourProjection::State::mapState() : IOAutomaton::State {
-	result.Name := self.Name;
+	result.name := self.name;
 }
 
 
 mapping Behaviour::mapBehaviour() : Automaton {
-	log("Mapping Behaviour to Automaton " + self.Lifeline.Name);
+	log("Mapping Behaviour to Automaton " + self.lifeline.name);
 	
-	result.Name := self.Lifeline.Name;
+	result.name := self.lifeline.name;
 	
-	result.Z := getStatesOfBehaviour(self);
-	result.In := self.Block.InMessage.map mapInMessage();
-	result.Out := self.Block.Activation.map mapActivation();
-	result.Delta := self.Block->map mapBlock(result);
-	result.Z0 := self.Block->at(1).PreState.map mapState();
+	result.z := getStatesOfBehaviour(self);
+	result.ingoing := self.block.inMessage.map mapInMessage();
+	result.outcoming := self.block.activation.map mapActivation();
+	result.delta := self.block->map mapBlock(result);
+	result.z0 := self.block->at(1).preState.map mapState();
 }
 
 mapping Block::mapBlock(automaton : IOAutomaton::Automaton) : Transition {
-	result.PreState := getAutomatonState(automaton.Z, self.PreState);
-	result.PostState := getAutomatonState(automaton.Z, self.PostState);
-	result.Input := automaton.In->select(e | e.Operation.Name = self.InMessage.Operation.Name)->asSequence()->at(1);
-	result.Activation := automaton.Out->select(e | e.equalsBehaviourActivation(self.Activation))->asSequence()->at(1);
-	result.Name := result.Input.Name + " / " + result.Activation.Name;
+	result.preState := getAutomatonState(automaton.z, self.preState);
+	result.postState := getAutomatonState(automaton.z, self.postState);
+	result.input := automaton.ingoing->select(e | e.operation.name = self.inMessage.operation.name)->asSequence()->at(1);
+	result.activation := automaton.outcoming->select(e | e.equalsBehaviourActivation(self.activation))->asSequence()->at(1);
+	result.name := result.input.name + " / " + result.activation.name;
 }
 
 mapping BehaviourProjection::InMessage::mapInMessage() : IOAutomaton::Input
 
-when { not inputsAlreadyInserted->includes(self.Operation.Name) 
+when { not inputsAlreadyInserted->includes(self.operation.name) 
 }{
-	inputsAlreadyInserted := inputsAlreadyInserted->including(self.Operation.Name);
-	result.Operation := self.Operation.map mapOperation();
-	result.Name := result.Operation.Name;
+	inputsAlreadyInserted := inputsAlreadyInserted->including(self.operation.name);
+	result.operation := self.operation.map mapOperation();
+	result.name := result.operation.name;
 }
 
 mapping BehaviourProjection::Operation::mapOperation() : IOAutomaton::Operation {
-	result.Name := self.Name;
+	result.name := self.name;
 }
 
 mapping BehaviourProjection::Activation::mapActivation() : IOAutomaton::Activation
@@ -163,26 +163,26 @@ mapping BehaviourProjection::Activation::mapActivation() : IOAutomaton::Activati
 when { not outputsAlreadyInserted->exists(e | e.equalsBehaviourActivation(self))
 }{
 	var name : String;
-	result.Output := self.OutMessage->map mapOutMessage();
-	result.Output->forEach(outp) {
-		name := name + outp.Name + ",";
+	result.output := self.outMessage->map mapOutMessage();
+	result.output->forEach(outp) {
+		name := name + outp.name + ",";
 	};
-	result.Return := self.ReturnValue.map mapReturn();
-	name := name + result.Return.Name;
-	result.Name := name;
+	result.returnValue := self.returnValue.map mapReturn();
+	name := name + result.returnValue.name;
+	result.name := name;
 	outputsAlreadyInserted += result;
 }
 
 mapping BehaviourProjection::OutMessage::mapOutMessage() : IOAutomaton::Output {
-	result.Operation := self.Operation.map mapOperation();
-	result.Object := self.Object.map mapObject();
-	result.Return := self.ReturnValue.map mapReturn();
-	result.Name := "<" + result.Operation.Name + "," + result.Object.Name + "," + "TODO" + ">";
+	result.operation := self.operation.map mapOperation();
+	result.outObject := self.outObject.map mapObject();
+	result.returnValue := self.returnValue.map mapReturn();
+	result.name := "<" + result.operation.name + "," + result.outObject.name + "," + "TODO" + ">";
 }
 mapping BehaviourProjection::Object::mapObject() : IOAutomaton::Object {
-	result.Name := self.Name;	
+	result.name := self.name;	
 }
 mapping BehaviourProjection::Return::mapReturn() : IOAutomaton::ReturnValue {
-	result.Name := self.Name;
-	result.IsVoid := self.IsVoid;
+	result.name := self.name;
+	result.isVoid := self.isVoid;
 }
