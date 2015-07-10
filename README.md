@@ -19,3 +19,11 @@ This repository implements an UML model transformation from UML sequence charts 
 
 ### Output language UML 2.0 state machines
  * Separation between “stable” and “activity” states
+
+### Participants
+ * Patrick D'Addona
+ * Ida Buchwald
+ * Michael Haubenschild
+ * Daniel Langerenken
+ * Maximilian Osenberg
+ * Johannes Stanggassinger
