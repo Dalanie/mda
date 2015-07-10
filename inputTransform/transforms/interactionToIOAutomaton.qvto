@@ -9,7 +9,7 @@ modeltype IOM uses 'http://www.studieren.se/automaton_projection';
 	
 	
 
-transformation interactionToIOAutomation(in seq : UML, out bmo : BMO, out iom : IOM)
+transformation interactionToIOAutomaton(in seq : UML, out bmo : BMO, out iom : IOM)
 	access transformation
 	scenarioProjection(in UML, out IMD),
 	behaviourProjection(in IMD, out BMO),
