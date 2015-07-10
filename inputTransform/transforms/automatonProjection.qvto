@@ -4,6 +4,7 @@ modeltype IOM uses 'http://www.studieren.se/automaton_projection';
 transformation automatonProjection(in bmo : BMO, out iom : IOM);
 
 property inputsAlreadyInserted : Set(String);
+property outputsAlreadyInserted : Set(IOAutomaton::Activation);
 
 	
 main() {
@@ -116,6 +117,21 @@ helper getAutomatonState(states : Set(IOAutomaton::State), inputState : Behaviou
 	return null;
 }
 
+helper IOAutomaton::Activation::equalsBehaviourActivation(activation : BehaviourProjection::Activation) : Boolean {
+	return self.Return.Name = activation.ReturnValue.Name 
+		and self.Return.IsVoid = activation.ReturnValue.IsVoid 
+		and self.Output->forAll(o1 | activation.OutMessage->exists(o2 | o1.Name = o2.Operation.Name 
+			and o1.Operation.Name = o2.Operation.Name 
+			and o1.Object.Name =    o2.Object.Name 
+			and ((o1.Return = null and o2.ReturnValue = null) or 
+				(o1.Return.Name =    o2.ReturnValue.Name and o1.Return.IsVoid =  o2.ReturnValue.IsVoid))))
+		and activation.OutMessage->forAll(o1 | self.Output->exists(o2 | o2.Name = o1.Operation.Name 
+			and o2.Operation.Name = o1.Operation.Name 
+			and o2.Object.Name =    o1.Object.Name 
+			and ((o2.Return = null and o1.ReturnValue = null) or 
+				(o2.Return.Name =    o1.ReturnValue.Name and o2.Return.IsVoid =  o1.ReturnValue.IsVoid))));
+}
+
 mapping BehaviourProjection::State::mapState() : IOAutomaton::State {
 	result.Name := self.Name;
 }
@@ -129,8 +145,8 @@ mapping Behaviour::mapBehaviour() : Automaton {
 	result.Z := getStatesOfBehaviour(self);
 	//result.In := getInputsFromTransitions(result.Delta);
 	result.In := self.Block.InMessage.map mapInMessage();
-	result.Delta := self.Block->map mapBlock(result);
 	result.Out := self.Block.Activation.map mapActivation();
+	result.Delta := self.Block->map mapBlock(result);
 	result.Z0 := self.Block->at(1).PreState.map mapState();
 }
 
@@ -138,8 +154,8 @@ mapping Block::mapBlock(automaton : IOAutomaton::Automaton) : Transition {
 	result.PreState := getAutomatonState(automaton.Z, self.PreState);
 	result.PostState := getAutomatonState(automaton.Z, self.PostState);
 	result.Input := automaton.In->select(e | e.Operation.Name = self.InMessage.Operation.Name)->asSequence()->at(1);
-		//.deepclone().oclAsType(IOAutomaton::Input);
-	result.Activation := self.Activation.map mapActivation();
+	result.Activation := automaton.Out->select(e | e.equalsBehaviourActivation(self.Activation))->asSequence()->at(1);
+		
 }
 
 mapping BehaviourProjection::InMessage::mapInMessage() : IOAutomaton::Input
@@ -155,9 +171,14 @@ mapping BehaviourProjection::Operation::mapOperation() : IOAutomaton::Operation 
 	result.Name := self.Name;
 }
 
-mapping BehaviourProjection::Activation::mapActivation() : IOAutomaton::Activation {
+mapping BehaviourProjection::Activation::mapActivation() : IOAutomaton::Activation
+
+when { not outputsAlreadyInserted->exists(e | e.equalsBehaviourActivation(self))
+}{
 	result.Output := self.OutMessage->map mapOutMessage();
 	result.Return := self.ReturnValue.map mapReturn();
+	
+	outputsAlreadyInserted += result;
 }
 
 mapping BehaviourProjection::OutMessage::mapOutMessage() : IOAutomaton::Output {
