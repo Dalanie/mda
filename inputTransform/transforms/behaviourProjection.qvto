@@ -31,8 +31,8 @@ mapping OrderedSet(Communication)::transformCommunicationSet() : Block {
 	result.InMessage := object BMO::InMessage {  };
 	result.InMessage.Operation := object BMO::Operation { Name := self->first().Operation.Name };
 	var outMessages = self->asOrderedSet()->select(c | c <> self->first()).map transformCommunication();
-	// copy the last return value of the OutMessages as result value of the whole activation
-	result.Activation := object BMO::Activation { ReturnValue := outMessages->last().ReturnValue };
+	// copy the return value of the incoming message as result value of the whole activation
+	result.Activation := object BMO::Activation { ReturnValue := object BMO::Return { Name := self->first().Return.Name } };
 	// transform every outgoing message in Communication into an OutMessage
 	result.Activation.OutMessage += outMessages;
 	// copy post state of first incoming message

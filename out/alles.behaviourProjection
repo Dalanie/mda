@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:behaviour="http://www.studieren.se/behaviour_projection" xsi:schemaLocation="http://www.studieren.se/behaviour_projection ../model/behaviour_projection.ecore">
   <behaviour:Behaviour>
+    <Lifeline Name="consortium"/>
+    <Block>
+      <PreState Name="WaitVerify"/>
+      <InMessage>
+        <Operation Name="verifyAccount"/>
+      </InMessage>
+      <Activation>
+        <OutMessage>
+          <Operation Name="verifyCardWithBank"/>
+          <Object Name="bank"/>
+          <ReturnValue Name=":badBankAccount"/>
+        </OutMessage>
+        <ReturnValue Name=":badAccount"/>
+      </Activation>
+      <PostState Name="WaitVerify"/>
+    </Block>
+    <Block>
+      <PreState Name="WaitVerify"/>
+      <InMessage>
+        <Operation Name="verifyAccount"/>
+      </InMessage>
+      <Activation>
+        <OutMessage>
+          <Operation Name="verifyCardWithBank"/>
+          <Object Name="bank"/>
+          <ReturnValue Name=":badBankPassword"/>
+        </OutMessage>
+        <ReturnValue Name=":badPassword"/>
+      </Activation>
+      <PostState Name="WaitVerify"/>
+    </Block>
+  </behaviour:Behaviour>
+  <behaviour:Behaviour>
     <Lifeline Name="atm"/>
     <Block>
       <PreState Name="WaitCard"/>
@@ -11,6 +44,7 @@
         <OutMessage>
           <Operation Name="requestPassword"/>
           <Object Name="user"/>
+          <ReturnValue Name="Void"/>
         </OutMessage>
         <ReturnValue Name="Void"/>
       </Activation>
@@ -45,6 +79,7 @@
         <OutMessage>
           <Operation Name="requestTakeCard"/>
           <Object Name="user"/>
+          <ReturnValue Name="Void"/>
         </OutMessage>
         <ReturnValue Name="Void"/>
       </Activation>
@@ -59,6 +94,7 @@
         <OutMessage>
           <Operation Name="displayMainScreen"/>
           <Object Name="user"/>
+          <ReturnValue Name="Void"/>
         </OutMessage>
         <ReturnValue Name="Void"/>
       </Activation>
@@ -73,6 +109,7 @@
         <OutMessage>
           <Operation Name="requestPassword"/>
           <Object Name="user"/>
+          <ReturnValue Name="Void"/>
         </OutMessage>
         <ReturnValue Name="Void"/>
       </Activation>
@@ -92,6 +129,7 @@
         <OutMessage>
           <Operation Name="requestPassword"/>
           <Object Name="user"/>
+          <ReturnValue Name="Void"/>
         </OutMessage>
         <ReturnValue Name="Void"/>
       </Activation>
@@ -116,6 +154,7 @@
         <OutMessage>
           <Operation Name="requestTakeCard"/>
           <Object Name="user"/>
+          <ReturnValue Name="Void"/>
         </OutMessage>
         <ReturnValue Name="Void"/>
       </Activation>
@@ -130,41 +169,11 @@
         <OutMessage>
           <Operation Name="displayMainScreen"/>
           <Object Name="user"/>
+          <ReturnValue Name="Void"/>
         </OutMessage>
         <ReturnValue Name="Void"/>
       </Activation>
       <PostState Name="WaitCard"/>
-    </Block>
-  </behaviour:Behaviour>
-  <behaviour:Behaviour>
-    <Lifeline Name="consortium"/>
-    <Block>
-      <PreState Name="WaitVerify"/>
-      <InMessage>
-        <Operation Name="verifyAccount"/>
-      </InMessage>
-      <Activation>
-        <OutMessage>
-          <Operation Name="verifyCardWithBank"/>
-          <Object Name="bank"/>
-        </OutMessage>
-        <ReturnValue Name=":badBankAccount"/>
-      </Activation>
-      <PostState Name="WaitVerify"/>
-    </Block>
-    <Block>
-      <PreState Name="WaitVerify"/>
-      <InMessage>
-        <Operation Name="verifyAccount"/>
-      </InMessage>
-      <Activation>
-        <OutMessage>
-          <Operation Name="verifyCardWithBank"/>
-          <Object Name="bank"/>
-        </OutMessage>
-        <ReturnValue Name=":badBankPassword"/>
-      </Activation>
-      <PostState Name="WaitVerify"/>
     </Block>
   </behaviour:Behaviour>
   <behaviour:Behaviour>
@@ -174,7 +183,9 @@
       <InMessage>
         <Operation Name="verifyCardWithBank"/>
       </InMessage>
-      <Activation/>
+      <Activation>
+        <ReturnValue Name=":badBankAccount"/>
+      </Activation>
       <PostState Name="WaitBankVerify"/>
     </Block>
     <Block>
@@ -182,7 +193,9 @@
       <InMessage>
         <Operation Name="verifyCardWithBank"/>
       </InMessage>
-      <Activation/>
+      <Activation>
+        <ReturnValue Name=":badBankPassword"/>
+      </Activation>
       <PostState Name="WaitBankVerify"/>
     </Block>
   </behaviour:Behaviour>
