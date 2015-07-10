@@ -106,18 +106,21 @@ helper getAutomatonState(states : Set(IOAutomaton::State), inputState : Behaviou
 }
 
 helper IOAutomaton::Activation::equalsBehaviourActivation(activation : BehaviourProjection::Activation) : Boolean {
-	return self.returnValue.name = activation.returnValue.name 
-		and self.returnValue.isVoid = activation.returnValue.isVoid 
-		and self.output->forAll(o1 | activation.outMessage->exists(o2 | o1.name = o2.operation.name 
+	
+	
+	var a  = self.returnValue.name = activation.returnValue.name 
+		and self.returnValue.isVoid = activation.returnValue.isVoid;
+	var b = self.output->forAll(o1 | activation.outMessage->exists(o2 | o1.name = o2.operation.name 
 			and o1.operation.name = o2.operation.name 
 			and o1.outObject.name =    o2.outObject.name 
 			and ((o1.returnValue = null and o2.returnValue = null) or 
-				(o1.returnValue.name =    o2.returnValue.name and o1.returnValue.isVoid =  o2.returnValue.isVoid))))
-		and activation.outMessage->forAll(o1 | self.output->exists(o2 | o2.name = o1.operation.name 
+				(o1.returnValue.name =    o2.returnValue.name and o1.returnValue.isVoid =  o2.returnValue.isVoid))));
+	var c = activation.outMessage->forAll(o1 | self.output->exists(o2 | o2.name = o1.operation.name 
 			and o2.operation.name = o1.operation.name 
 			and o2.outObject.name =    o1.outObject.name 
 			and ((o2.returnValue = null and o1.returnValue = null) or 
 				(o2.returnValue.name =    o1.returnValue.name and o2.returnValue.isVoid =  o1.returnValue.isVoid))));
+	return a and b and c;
 }
 
 mapping BehaviourProjection::State::mapState() : IOAutomaton::State {
@@ -141,7 +144,8 @@ mapping Block::mapBlock(automaton : IOAutomaton::Automaton) : Transition {
 	result.preState := getAutomatonState(automaton.z, self.preState);
 	result.postState := getAutomatonState(automaton.z, self.postState);
 	result.input := automaton.ingoing->select(e | e.operation.name = self.inMessage.operation.name)->asSequence()->at(1);
-	result.activation := automaton.outcoming->select(e | e.equalsBehaviourActivation(self.activation))->asSequence()->at(1);
+	var test = automaton.outcoming->select(e | e.equalsBehaviourActivation(self.activation))->asSequence();
+	result.activation := test->at(1);
 	result.name := result.input.name + " / " + result.activation.name;
 }
 
@@ -177,7 +181,7 @@ mapping BehaviourProjection::OutMessage::mapOutMessage() : IOAutomaton::Output {
 	result.operation := self.operation.map mapOperation();
 	result.outObject := self.outObject.map mapObject();
 	result.returnValue := self.returnValue.map mapReturn();
-	result.name := "<" + result.operation.name + "," + result.outObject.name + "," + "TODO" + ">";
+	result.name := "<" + result.operation.name + "," + result.outObject.name + "," + result.returnValue.name + ">";
 }
 mapping BehaviourProjection::Object::mapObject() : IOAutomaton::Object {
 	result.name := self.name;	
