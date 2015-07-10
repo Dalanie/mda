@@ -8,6 +8,14 @@ This repository implements an UML model transformation from UML sequence charts 
 * only “simple” interactions (no interaction operators, like strict, alt, &c.)
 * rendered in a tabular notation
 
+Bad Account:
+
+![Bad Account](/images/bad_account.PNG)  
+
+Bad Password:
+
+![Bad Password](/images/bad_password.PNG)
+
 ##1. Projection of scenarios on each object
 
 ##2. Grouping of projections into behaviours
