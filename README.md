@@ -7,6 +7,7 @@ This repository implements an UML model transformation from UML sequence charts 
 * “lingua franca” of software engineering
 * only “simple” interactions (no interaction operators, like strict, alt, &c.)
 * rendered in a tabular notation
+
 <table>
   <tr>
     <th>Bad Account</th>
