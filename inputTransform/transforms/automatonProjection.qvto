@@ -95,18 +95,6 @@ helper containsOutput(outputs : Set(IOAutomaton::Output), probeOutput : IOAutoma
 	return false;
 }
 
-/*helper getOutputsFromTransitions(transitions : Set(IOAutomaton::Transition)) : Set(IOAutomaton::Output) {
-	var outputs : Set(IOAutomaton::Output);
-	transitions->forEach(transition) {
-		transition.Activation.Output->forEach(output) {
-			if(not containsOutput(outputs, output)) {
-				outputs += output;
-			}
-		}
-	};
-	return outputs;
-}*/
-
 helper getAutomatonState(states : Set(IOAutomaton::State), inputState : BehaviourProjection::State) : IOAutomaton::State {
 	states->forEach(state) {
 		if(state.Name.=(inputState.Name)) {
@@ -143,7 +131,6 @@ mapping Behaviour::mapBehaviour() : Automaton {
 	result.Name := self.Lifeline.Name;
 	
 	result.Z := getStatesOfBehaviour(self);
-	//result.In := getInputsFromTransitions(result.Delta);
 	result.In := self.Block.InMessage.map mapInMessage();
 	result.Out := self.Block.Activation.map mapActivation();
 	result.Delta := self.Block->map mapBlock(result);
@@ -155,7 +142,7 @@ mapping Block::mapBlock(automaton : IOAutomaton::Automaton) : Transition {
 	result.PostState := getAutomatonState(automaton.Z, self.PostState);
 	result.Input := automaton.In->select(e | e.Operation.Name = self.InMessage.Operation.Name)->asSequence()->at(1);
 	result.Activation := automaton.Out->select(e | e.equalsBehaviourActivation(self.Activation))->asSequence()->at(1);
-		
+	result.Name := result.Input.Name + " / " + result.Activation.Name;
 }
 
 mapping BehaviourProjection::InMessage::mapInMessage() : IOAutomaton::Input
@@ -175,17 +162,22 @@ mapping BehaviourProjection::Activation::mapActivation() : IOAutomaton::Activati
 
 when { not outputsAlreadyInserted->exists(e | e.equalsBehaviourActivation(self))
 }{
+	var name : String;
 	result.Output := self.OutMessage->map mapOutMessage();
+	result.Output->forEach(outp) {
+		name := name + outp.Name + ",";
+	};
 	result.Return := self.ReturnValue.map mapReturn();
-	
+	name := name + result.Return.Name;
+	result.Name := name;
 	outputsAlreadyInserted += result;
 }
 
 mapping BehaviourProjection::OutMessage::mapOutMessage() : IOAutomaton::Output {
 	result.Operation := self.Operation.map mapOperation();
-	result.Name := result.Operation.Name;
 	result.Object := self.Object.map mapObject();
 	result.Return := self.ReturnValue.map mapReturn();
+	result.Name := "<" + result.Operation.Name + "," + result.Object.Name + "," + "TODO" + ">";
 }
 mapping BehaviourProjection::Object::mapObject() : IOAutomaton::Object {
 	result.Name := self.Name;	
