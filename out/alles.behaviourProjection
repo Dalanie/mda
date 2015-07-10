@@ -1,26 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:behaviour="http://www.studieren.se/behaviour_projection" xsi:schemaLocation="http://www.studieren.se/behaviour_projection ../model/behaviour_projection.ecore">
   <behaviour:Behaviour>
-    <lifeline name="bank"/>
+    <lifeline name="consortium"/>
     <block>
-      <preState name="WaitBankVerify"/>
+      <preState name="WaitVerify"/>
       <inMessage>
-        <operation name="verifyCardWithBank"/>
+        <operation name="verifyAccount"/>
       </inMessage>
       <activation>
-        <returnValue name=":badBankAccount"/>
+        <outMessage>
+          <operation name="verifyCardWithBank"/>
+          <outObject name="bank"/>
+          <returnValue name=":badBankAccount"/>
+        </outMessage>
+        <returnValue name=":badAccount"/>
       </activation>
-      <postState name="WaitBankVerify"/>
+      <postState name="WaitVerify"/>
     </block>
     <block>
-      <preState name="WaitBankVerify"/>
+      <preState name="WaitVerify"/>
       <inMessage>
-        <operation name="verifyCardWithBank"/>
+        <operation name="verifyAccount"/>
       </inMessage>
       <activation>
-        <returnValue name=":badBankPassword"/>
+        <outMessage>
+          <operation name="verifyCardWithBank"/>
+          <outObject name="bank"/>
+          <returnValue name=":badBankPassword"/>
+        </outMessage>
+        <returnValue name=":badPassword"/>
       </activation>
-      <postState name="WaitBankVerify"/>
+      <postState name="WaitVerify"/>
     </block>
   </behaviour:Behaviour>
   <behaviour:Behaviour>
@@ -167,36 +177,26 @@
     </block>
   </behaviour:Behaviour>
   <behaviour:Behaviour>
-    <lifeline name="consortium"/>
+    <lifeline name="bank"/>
     <block>
-      <preState name="WaitVerify"/>
+      <preState name="WaitBankVerify"/>
       <inMessage>
-        <operation name="verifyAccount"/>
+        <operation name="verifyCardWithBank"/>
       </inMessage>
       <activation>
-        <outMessage>
-          <operation name="verifyCardWithBank"/>
-          <outObject name="bank"/>
-          <returnValue name=":badBankAccount"/>
-        </outMessage>
-        <returnValue name=":badAccount"/>
+        <returnValue name=":badBankAccount"/>
       </activation>
-      <postState name="WaitVerify"/>
+      <postState name="WaitBankVerify"/>
     </block>
     <block>
-      <preState name="WaitVerify"/>
+      <preState name="WaitBankVerify"/>
       <inMessage>
-        <operation name="verifyAccount"/>
+        <operation name="verifyCardWithBank"/>
       </inMessage>
       <activation>
-        <outMessage>
-          <operation name="verifyCardWithBank"/>
-          <outObject name="bank"/>
-          <returnValue name=":badBankPassword"/>
-        </outMessage>
-        <returnValue name=":badPassword"/>
+        <returnValue name=":badBankPassword"/>
       </activation>
-      <postState name="WaitVerify"/>
+      <postState name="WaitBankVerify"/>
     </block>
   </behaviour:Behaviour>
 </xmi:XMI>

@@ -28,13 +28,10 @@ mapping OrderedSet(Communication)::transformCommunicationSet() : Block {
 	// copy pre state of incomming message
 	result.preState := object BMO::State { name := self->first().preState.name };
 	// copy operation
-	result.inMessage := object BMO::InMessage {  };
-	result.inMessage.operation := object BMO::Operation { name := self->first().operation.name };
+	result.inMessage := object BMO::InMessage { operation := object BMO::Operation { name := self->first().operation.name } };
 	var outMessages = self->asOrderedSet()->select(c | c <> self->first()).map transformCommunication();
 	// copy the return value of the incoming message as result value of the whole activation
-	result.activation := object BMO::Activation { returnValue := object BMO::Return { name := self->first().returnValue.name } };
-	// transform every outgoing message in Communication into an OutMessage
-	result.activation.outMessage += outMessages;
+	result.activation := object BMO::Activation { returnValue := object BMO::Return { name := self->first().returnValue.name }; outMessage += outMessages };
 	// copy post state of first incoming message
 	result.postState := object BMO::State { name := self->first().postState.name };
 }
