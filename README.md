@@ -24,12 +24,18 @@ This repository implements an UML model transformation from UML sequence charts 
 
 ##1. Projection of scenarios on each object
 
+<img src="images/scenarioProjection.PNG" height="500"/>
+
 ##2. Grouping of projections into behaviours
  * capturing reaction of an object to a (synchronous) message
  * Idea: object waits for (synchronous) message in a stable state, performs reaction as its activity
 
+<img src="images/behaviourProjection.PNG" height="500"/>
+
 ##3. Integration of behaviours across scenarios into I/O-automaton
  * Non-determinism as indicator of inconsistency and incompleteness
+ 
+<img src="images/ioAutomaton.PNG" height="500"/>
 
 ### Output language UML 2.0 state machines
  * Separation between “stable” and “activity” states
