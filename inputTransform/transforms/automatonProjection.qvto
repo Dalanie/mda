@@ -5,6 +5,7 @@ transformation automatonProjection(in bmo : BMO, out iom : IOM);
 
 property inputsAlreadyInserted : Set(String);
 property outputsAlreadyInserted : Set(IOAutomaton::Activation);
+property transitionsAlreadyInserted : Set(IOAutomaton::Transition);
 
 	
 main() {
@@ -106,8 +107,6 @@ helper getAutomatonState(states : Set(IOAutomaton::State), inputState : Behaviou
 }
 
 helper IOAutomaton::Activation::equalsBehaviourActivation(activation : BehaviourProjection::Activation) : Boolean {
-	
-	
 	var a  = self.returnValue.name = activation.returnValue.name 
 		and self.returnValue.isVoid = activation.returnValue.isVoid;
 	var b = self.output->forAll(o1 | activation.outMessage->exists(o2 | o1.name = o2.getName()
@@ -124,7 +123,6 @@ helper IOAutomaton::Activation::equalsBehaviourActivation(activation : Behaviour
 }
 
 helper BehaviourProjection::Activation::getName() : String {
-	
 	var name : String;
 	self.outMessage->forEach(o) {
 		name := name + o.operation.name + ",";
@@ -135,8 +133,11 @@ helper BehaviourProjection::Activation::getName() : String {
 }
 
 helper BehaviourProjection::OutMessage::getName() : String {
-	
 	return "<" + self.operation.name + "," + self.outObject.name + "," + self.returnValue.name + ">";
+}
+
+helper BehaviourProjection::Block::getName() : String {
+	return self.inMessage.operation.name + " / " + self.activation.getName();
 }
 
 mapping BehaviourProjection::State::mapState() : IOAutomaton::State {
@@ -156,17 +157,25 @@ mapping Behaviour::mapBehaviour() : Automaton {
 	result.z0 := self.block->at(1).preState.map mapState();
 }
 
-mapping Block::mapBlock(automaton : IOAutomaton::Automaton) : Transition {
+mapping Block::mapBlock(automaton : IOAutomaton::Automaton) : Transition
+when { not transitionsAlreadyInserted->exists(e | e.preState.name = self.preState.name 
+and e.postState.name = self.postState.name 
+and e.input.operation.name = self.inMessage.operation.name
+and e.input.name = self.inMessage.operation.name
+and e.activation.equalsBehaviourActivation(self.activation)
+and e.name = self.getName());
+}{
 	result.preState := getAutomatonState(automaton.z, self.preState);
 	result.postState := getAutomatonState(automaton.z, self.postState);
 	result.input := automaton.ingoing->select(e | e.operation.name = self.inMessage.operation.name)->asSequence()->at(1);
 	var test = automaton.outcoming->select(e | e.equalsBehaviourActivation(self.activation))->asSequence();
 	result.activation := test->at(1);
-	result.name := result.input.name + " / " + result.activation.name;
+	result.name := self.getName();
+	
+	transitionsAlreadyInserted += result;
 }
 
 mapping BehaviourProjection::InMessage::mapInMessage() : IOAutomaton::Input
-
 when { not inputsAlreadyInserted->includes(self.operation.name) 
 }{
 	inputsAlreadyInserted := inputsAlreadyInserted->including(self.operation.name);
@@ -179,7 +188,6 @@ mapping BehaviourProjection::Operation::mapOperation() : IOAutomaton::Operation 
 }
 
 mapping BehaviourProjection::Activation::mapActivation() : IOAutomaton::Activation
-
 when { not outputsAlreadyInserted->exists(e | e.equalsBehaviourActivation(self))
 }{
 	result.output := self.outMessage->map mapOutMessage();
