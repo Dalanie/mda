@@ -8,15 +8,8 @@ This repository implements an UML model transformation from UML sequence charts 
 * only “simple” interactions (no interaction operators, like strict, alt, &c.)
 * rendered in a tabular notation
 
-<table>
-<tr>
-<td>
-![ScreenShot](https://raw.github.com/Dalanie/mda/master/images/bad_account.PNG)
-</td>
-<td>
-![ScreenShot](https://raw.github.com/Dalanie/mda/master/images/bad_password.PNG)
-</td>
-</table>
+<img src="images/bad_account.PNG" width="405">
+<img src="images/bad_password.PNG" width="425">
 
 
 ##1. Projection of scenarios on each object
